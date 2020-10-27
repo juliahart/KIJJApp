@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/myPoints"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="68dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_toEndOf="@id/points"
+        android:layout_toRightOf="@id/points"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toStartOf="@id/points"
+        android:layout_toLeftOf="@id/points"
+        android:onClick="goBack"
+        android:text="@string/back" />
+
+    <TextView
+        android:id="@+id/yourPoints"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/points"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/pointsInfo"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/pointsToGet"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/yourPoints"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/pointsLeft"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <Button
+        android:id="@+id/goToProfile"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/pointsToGet"
+        android:layout_centerHorizontal="true"
+        android:text="@string/redeem"
+        android:layout_height="50dp"
+        android:layout_width="300dp"
+        android:onClick="redeemPoints"/>
+
+
+</RelativeLayout>

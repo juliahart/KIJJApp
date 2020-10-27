@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="239dp"
+        android:layout_height="185dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/newUser"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/NewUser"
+        android:onClick="goToSignUp"
+        android:layout_height="100dp"
+        android:layout_width="200dp" />
+
+    <Button
+        android:id="@+id/User"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@+id/newUser"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/Login"
+        android:onClick="goToLoginPage"
+        android:layout_height="100dp"
+        android:layout_width="200dp" />
+
+</RelativeLayout>

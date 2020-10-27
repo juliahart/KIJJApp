@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/newBookings"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/newBookings"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="68dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_toEndOf="@id/newBookings"
+        android:layout_toRightOf="@id/newBookings"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toStartOf="@id/newBookings"
+        android:layout_toLeftOf="@id/newBookings"
+        android:onClick="goBack"
+        android:text="@string/back" />
+
+
+    <TextView
+        android:id = "@+id/type"
+        android:layout_below="@id/newBookings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/type_of_animal"/>
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/type"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/dog" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/checkBox1"
+        android:layout_below="@+id/type"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/cat"
+        android:layout_toEndOf="@id/checkBox1" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/checkBox2"
+        android:layout_below="@+id/type"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/other"
+        android:layout_toEndOf="@id/checkBox2" />
+
+    <TextView
+        android:id = "@+id/breed"
+        android:layout_below="@id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/breed"/>
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/breed"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/golden_doodle" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/checkBox4"
+        android:layout_below="@id/breed"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/lab" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox4"
+        android:id = "@+id/rate"
+        android:text = "@string/rating"
+        />
+
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_below="@+id/rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:saveEnabled="true"
+        android:numStars="5"/>
+
+    <TextView
+        android:id = "@+id/distance"
+        android:layout_below="@id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/distance"/>
+    <SeekBar
+        android:id="@+id/distance_bar"
+        android:layout_below="@+id/distance"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:progress="15"
+        android:max="100"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/distance_bar"
+        android:layout_below="@+id/distance_bar"
+        android:layout_alignStart="@+id/distance_bar" />
+
+    <View
+        android:layout_height="5dip"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20dp"
+        android:id="@+id/line"
+        android:layout_below="@+id/textView"/>
+
+    <TextView
+        android:id="@+id/booking"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/line"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/info"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <Button
+        android:id="@+id/goToProfile"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/booking"
+        android:layout_centerHorizontal="true"
+        android:text="@string/LearnMore"
+        android:layout_height="50dp"
+        android:layout_width="300dp"
+        android:onClick="goToProfile"/>
+
+
+    <TextView
+        android:id="@+id/booking2"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/goToProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/info"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <Button
+        android:id="@+id/goToProfile2"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/booking2"
+        android:layout_centerHorizontal="true"
+        android:text="@string/LearnMore"
+        android:layout_height="50dp"
+        android:layout_width="300dp"
+        android:onClick="goToProfile"/>
+
+
+</RelativeLayout>

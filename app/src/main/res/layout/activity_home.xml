@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/greeting"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="78dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_toEndOf="@id/welcome"
+        android:layout_toRightOf="@id/welcome"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toStartOf="@id/welcome"
+        android:layout_toLeftOf="@id/welcome"
+        android:onClick="goBack"
+        android:text="@string/back" />
+
+    <Button
+        android:id="@+id/FindNew"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/findNew"
+        android:layout_height="100dp"
+        android:layout_width="300dp"
+        android:onClick="goToNewBooking" />
+
+    <Button
+        android:id="@+id/LookAtBooking"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@+id/FindNew"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/lookAt"
+        android:layout_height="100dp"
+        android:layout_width="300dp"
+        android:onClick = "goToUpcomingBooking"/>
+
+    <Button
+        android:id="@+id/ViewProfile"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/LookAtBooking"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/view"
+        android:layout_height="100dp"
+        android:layout_width="300dp"
+        android:onClick="goToProfile"/>
+
+    <Button
+        android:id="@+id/Points"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@+id/ViewProfile"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/points"
+        android:layout_height="100dp"
+        android:layout_width="300dp"
+        android:onClick="goToPoints"/>
+</RelativeLayout>

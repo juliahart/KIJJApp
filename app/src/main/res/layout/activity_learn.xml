@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <TextView
+        android:id="@+id/bookingInfo"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text ="@string/LearnMore"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="68dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_toEndOf="@id/bookingInfo"
+        android:layout_toRightOf="@id/bookingInfo"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toStartOf="@id/bookingInfo"
+        android:layout_toLeftOf="@id/bookingInfo"
+        android:onClick="goBack"
+        android:text="@string/back" />
+
+    <TextView
+        android:id="@+id/ownerProfileInfo"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/bookingInfo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/ownerProfileInfo"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/specificBookingInfo"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/ownerProfileInfo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/specificBookingInfo"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <Button
+        android:id="@+id/goToProfile"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/specificBookingInfo"
+        android:layout_centerHorizontal="true"
+        android:text="@string/apply"
+        android:layout_marginTop="30dp"
+        android:layout_height="50dp"
+        android:layout_width="300dp"
+        android:onClick="apply"/>
+
+
+</RelativeLayout>

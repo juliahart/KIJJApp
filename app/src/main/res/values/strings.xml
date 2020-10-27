@@ -1,3 +1,54 @@
 <resources>
-    <string name="app_name">KIJJApp</string>
+    <string name="app_name">PawPals</string>
+    <string name="Login">Login</string>
+    <string name="NewUser">New User</string>
+
+    <string name="greeting">Welcome back!</string>
+    <string name="findNew">Find new booking</string>
+    <string name="lookAt"> Look at upcoming/current bookings</string>
+    <string name="view">View Profile</string>
+    <string name="points">View and Redeem Points</string>
+
+    <string name="yourBookings"> Your Bookings </string>
+    <string name="back"> back </string>
+    <string name="info"> dates, address, type, name </string>
+    <string name="ViewOwnerProfile"> View Owner Profile</string>
+
+
+    <string name="LearnMore"> Learn More</string>
+    <string name="newBookings"> New Bookings </string>
+
+
+    <string name="profile"> Profile </string>
+    <string name="profileInfo"> Info </string>
+    <string name="edit"> Edit Your Profile </string>
+
+    <string name="myPoints"> Your Points </string>
+    <string name="pointsInfo"> You have: __ Points </string>
+    <string name="pointsLeft"> __ more points until you can redeem </string>
+    <string name="redeem"> Redeem </string>
+
+
+    <string name="apply"> Apply </string>
+    <string name="ownerProfileInfo"> Owner Profile Info </string>
+    <string name="specificBookingInfo"> Booking Info </string>
+
+    <string name="createAccount"> Create Account </string>
+
+    <string name="checkbox1">Type of Animal</string>
+    <string name="checkbox2">Breed</string>
+    <string name="checkbox3">Ranking</string>
+    <string name="distance">Distance:</string>
+    <string name="type_of_animal">Type of Animal: </string>
+    <string name="dog">dog</string>
+    <string name="cat">cat</string>
+    <string name="breed">Breed:</string>
+    <string name="golden_doodle">Golden Doodle</string>
+    <string name="rating">Rating:</string>
+    <string name="lab">Lab</string>
+    <string name="other">other</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+
+
 </resources>

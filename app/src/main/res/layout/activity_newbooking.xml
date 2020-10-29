@@ -70,16 +70,32 @@
         android:text="@string/cat"
         android:layout_toEndOf="@id/checkBox1" />
 
-    <CheckBox
-        android:id="@+id/checkBox3"
+    <TextView
+        android:id="@+id/otherText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/type"
+        android:layout_alignTop="@+id/checkBox2"
+        android:layout_alignBottom="@+id/checkBox2"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="-6dp"
+        android:layout_toEndOf="@id/checkBox2"
         android:layout_toRightOf="@id/checkBox2"
+        android:text="@string/other" />
+
+    <EditText
+        android:id="@+id/checkBox3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/type"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:text="@string/other"
-        android:layout_toEndOf="@id/checkBox2" />
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="-7dp"
+        android:layout_marginBottom="-1dp"
+        android:layout_toEndOf="@+id/otherText"
+        android:layout_toRightOf="@+id/otherText" />
 
     <TextView
         android:id = "@+id/breed"
@@ -88,26 +104,13 @@
         android:layout_height="wrap_content"
         android:text="@string/breed"/>
 
-    <CheckBox
+    <EditText
         android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+        android:layout_width="300dp"
+        android:layout_height = "wrap_content"
         android:layout_below="@id/breed"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:text="@string/golden_doodle" />
+        />
 
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/checkBox4"
-        android:layout_below="@id/breed"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:text="@string/lab" />
 
     <TextView
         android:layout_width="wrap_content"

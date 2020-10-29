@@ -53,6 +53,9 @@ public class NewBookingsActivity extends AppCompatActivity {
         finish();
     }
 
+    /*
+     * method to search for filtered bookings
+     */
     public void search(View view) {
     }
 }

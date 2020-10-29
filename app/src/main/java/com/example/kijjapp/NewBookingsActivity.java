@@ -14,11 +14,28 @@ import java.text.BreakIterator;
 
 public class NewBookingsActivity extends AppCompatActivity {
 
+    private TextView tv;
+    private SeekBar seekBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newbooking);
+        seekBar = findViewById(R.id.distance_bar);
+        tv = findViewById(R.id.distanceView);
 
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {}
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                tv.setText(String.valueOf(seekBar.getProgress()) + " mi");
+            }
+        });
     }
 
     /*

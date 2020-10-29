@@ -49,6 +49,7 @@
     <string name="other">other:</string>
     <string name="username">username</string>
     <string name="password">password</string>
+    <string name="Search">Search</string>
 
 
 </resources>

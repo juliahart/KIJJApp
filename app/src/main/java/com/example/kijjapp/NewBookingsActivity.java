@@ -28,5 +28,9 @@ public class NewBookingsActivity extends AppCompatActivity {
         public void goBack(View view) {
             finish();
         }
+
+    public void search(View view)
+    {
+    }
 }
 

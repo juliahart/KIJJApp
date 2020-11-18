@@ -6,23 +6,26 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="239dp"
-        android:layout_height="185dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo" />
-
-    <EditText
-        android:layout_below="@id/logo"
-        android:id="@+id/username"
-        android:hint = "@string/username"
-        android:layout_width="300dp"
+    <TextView
+        android:id="@+id/signup"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:autofillHints="Create Username"
         android:layout_centerHorizontal="true"
-        />
+        android:gravity="center_horizontal"
+        android:text ="@string/sign_up"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="68dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_toEndOf="@id/signup"
+        android:layout_toRightOf="@id/signup"
+        android:src="@drawable/logo" />
 
     <Button
         android:id="@+id/back"
@@ -31,10 +34,54 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="3dp"
         android:layout_marginRight="3dp"
-        android:layout_toStartOf="@id/logo"
-        android:layout_toLeftOf="@id/logo"
+        android:layout_toStartOf="@id/signup"
+        android:layout_toLeftOf="@id/signup"
         android:onClick="goBack"
         android:text="@string/back" />
+
+    <EditText
+        android:layout_below="@id/signup"
+        android:id="@+id/first"
+        android:hint = "@string/first_name"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints="First Name"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:layout_below="@id/first"
+        android:id="@+id/last"
+        android:hint = "@string/last_name"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints="Last Name"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:layout_below="@id/last"
+        android:id="@+id/address"
+        android:hint = "@string/address"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints="Address"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:layout_below="@id/address"
+        android:id="@+id/username"
+        android:hint = "@string/username"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints="Create Username"
+        android:layout_centerHorizontal="true"
+        />
 
     <EditText
         android:id="@+id/password"
@@ -54,7 +101,7 @@
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:text="@string/createAccount"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
         android:layout_width="200dp"
         android:onClick = "goToHomePage"/>
 </RelativeLayout>

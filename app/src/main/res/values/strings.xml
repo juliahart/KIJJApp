@@ -51,6 +51,10 @@
     <string name="password">password</string>
     <string name="Search">Search</string>
     <string name="_15">15 mi</string>
+    <string name="sign_up">Sign up</string>
+    <string name="first_name">first name</string>
+    <string name="last_name">last name</string>
+    <string name="address">address</string>
 
 
 </resources>

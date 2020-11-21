@@ -7,9 +7,9 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class ThreadTaskUrl extends Thread {
-    private MainActivity activity;
+    private ProfileActivity activity;
 
-    public ThreadTaskUrl( MainActivity fromActivity ) {
+    public ThreadTaskUrl(ProfileActivity fromActivity ) {
         activity = fromActivity;
     }
 
@@ -19,7 +19,7 @@ public class ThreadTaskUrl extends Thread {
 
         try {
             //create a URL
-            URL url = new URL(MainActivity.URL);
+            URL url = new URL(ProfileActivity.URL);
             // create an input stream for the URL
             InputStream is = url.openStream();
             // read from that input stream

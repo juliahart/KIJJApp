@@ -24,30 +24,30 @@ public class ThreadTaskUrlPost extends Thread {
 
         //try {
             // create a URL
-          //  URL url = new URL(MainActivity.URL_POST);
-          //  // create a URLConnection
-          //  URLConnection connection = url.openConnection();
-          //  connection.setDoOutput( true );
-          //  // get output stream
-          //  OutputStream os = connection.getOutputStream();
-          //  OutputStreamWriter osw = new OutputStreamWriter( os );
-          //  osw.write( "name=Jane&age=21" );
-         //   osw.flush();
-//
+        //    URL url = new URL(MainActivity.URL_POST);
+            // create a URLConnection
+         //   URLConnection connection = url.openConnection();
+        //    connection.setDoOutput( true );
+            // get output stream
+        //    OutputStream os = connection.getOutputStream();
+        //    OutputStreamWriter osw = new OutputStreamWriter( os );
+         //   osw.write( "name=Jane&age=21" );
+        //    osw.flush();
+
             // create an input stream for the URL
         //    InputStream is = connection.getInputStream();
-         //   InputStreamReader isr = new InputStreamReader( is );
-        //    BufferedReader br = new BufferedReader( isr );
+        //    InputStreamReader isr = new InputStreamReader( is );
+         //   BufferedReader br = new BufferedReader( isr );
             // read from that input stream
-        //    String line = "";
-         //   String s = "";
+         //   String line = "";
+        //    String s = "";
          //   while( ( line = br.readLine() ) != null ) {
-        //        s += line;
+         //       s += line;
         //    }
-       //     activity.updateView(s);
+        //    activity.updateView(s);
        // } catch( Exception e ) {
-      //      Log.w( "MA", "exception: " + e.getMessage() );
-     //   }
+        //    Log.w( "MA", "exception: " + e.getMessage() );
+      //  }
     }
 }
 

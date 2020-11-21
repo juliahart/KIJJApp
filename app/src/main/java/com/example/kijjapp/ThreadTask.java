@@ -3,9 +3,9 @@ package com.example.kijjapp;
 import android.util.Log;
 
 public class ThreadTask extends Thread {
-    private MainActivity activity;
+    private ProfileActivity activity;
 
-    public ThreadTask( MainActivity fromActivity ) {
+    public ThreadTask( ProfileActivity fromActivity ) {
         activity = fromActivity;
     }
 

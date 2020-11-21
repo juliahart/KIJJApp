@@ -24,8 +24,8 @@
     <string name="edit"> Edit Your Profile </string>
 
     <string name="myPoints"> Your Points </string>
-    <string name="pointsInfo"> You have: __ Points </string>
-    <string name="pointsLeft"> __ more points until you can redeem </string>
+    <string name="pointsInfo"> You have: 0 Points </string>
+    <string name="pointsLeft"> 25 more points until you can redeem </string>
     <string name="redeem"> Redeem </string>
 
 

@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         Log.w( "MA", "Creating a ThreadTask object" );
-        // ThreadTask task = new ThreadTask( this );
-        // ThreadTaskUrl task = new ThreadTaskUrl( this );
-        // ThreadTaskJsonUrl task = new ThreadTaskJsonUrl( this );
-        ThreadTaskUrlPost task = new ThreadTaskUrlPost( this );
+       // ThreadTask task = new ThreadTask( this );
+        ThreadTaskUrl task = new ThreadTaskUrl( this );
+         //ThreadTaskJsonUrl task = new ThreadTaskJsonUrl( this );
+        //ThreadTaskUrlPost task = new ThreadTaskUrlPost( this );
         Log.w( "MA", "Start thread" );
         task.start( );
         Log.w( "MA", "Inside onCreate, Thread started" );
@@ -58,12 +58,13 @@ public class MainActivity extends AppCompatActivity {
         try {
             JSONArray jsonArray = new JSONArray(json);
             JSONObject jsonObject1 = jsonArray.getJSONObject( 1 );
-            String email = jsonObject1.getString( "name" );
-            s = email +" :)" ;
+            String name = jsonObject1.getString( "name" );
+            int age = jsonObject1.getInt( "age" );
+            s = name + " " + age;
         } catch( JSONException jsone ) {
             Log.w( "MA", "JSON exception: " + jsone.getMessage() );
         }
-        TextView tv = (TextView) findViewById( R.id.newUser );
+        TextView tv = (TextView) findViewById( R.id.newUser);
         tv.setText( s );
 
     }

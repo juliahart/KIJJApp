@@ -13,7 +13,7 @@ public class ThreadTask extends Thread {
         // update View
         Log.w( "MA", "Inside run ThreadTask" );
         String s = "CHANGED from THREAD";
-        activity.updateView( s );
+       // activity.updateView( s );
     }
 
 

@@ -15,11 +15,11 @@ public class ThreadTaskUrl extends Thread {
 
     public void run( ) {
         // update View
-        Log.w( "MA", "Inside run" );
+        Log.w( "MA", "Inside run URL" );
 
         try {
-            // create a URL
-            URL url = new URL(MainActivity.URL_GET);
+            //create a URL
+            URL url = new URL(MainActivity.URL);
             // create an input stream for the URL
             InputStream is = url.openStream();
             // read from that input stream
@@ -30,7 +30,7 @@ public class ThreadTaskUrl extends Thread {
             }
             activity.updateView(s);
         } catch( Exception e ) {
-            Log.w( "MA", "exception: " + e.getMessage() );
+            Log.w( "MA", "exception URL: " + e.getMessage() );
         }
     }
 }

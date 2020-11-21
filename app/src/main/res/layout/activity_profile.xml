@@ -40,7 +40,7 @@
         android:text="@string/back" />
 
     <TextView
-        android:id="@+id/booking"
+        android:id="@+id/prifileInfo"
         android:layout_width="300dp"
         android:layout_height="400dp"
         android:layout_below="@+id/profile"
@@ -55,7 +55,7 @@
         android:id="@+id/editProfile"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorAccent"
-        android:layout_below="@+id/booking"
+        android:layout_below="@+id/prifileInfo"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:text="@string/edit"

@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileActivity extends AppCompatActivity {
-    public static final String URL = "http://kijj.cs.loyola.edu/model/homepage.php";
+    public static final String URL = "http://kijj.cs.loyola.edu/model/testHi.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void updateView( String s ) {
         Log.w( "MA", "Inside updateView" );
-        TextView tv = (TextView) findViewById( R.id.newUser );
+        TextView tv = (TextView) findViewById( R.id.prifileInfo );
         tv.setText( s );
 
     }

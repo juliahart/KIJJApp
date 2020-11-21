@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileActivity extends AppCompatActivity {
-    public static final String URL = "http://kijj.cs.loyola.edu/model/testHi.php";
+    public static final String URL = "http://kijj.cs.loyola.edu/model/homepage.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

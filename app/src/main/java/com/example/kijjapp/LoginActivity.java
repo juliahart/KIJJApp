@@ -19,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //public static final String URL_JSON = "http://kijj.cs.loyola.edu/model/sitterProfile.php";
     public static final String URL_JSON = "http://klmatrangola.cs.loyola.edu/kijjTesting/siterProfile.php";
+    private String pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         String email = emailET.getText().toString();
         MainActivity.email = email;
         EditText passET= (EditText) findViewById( R.id.password);
+        pass = passET.getText().toString();
         //check password later
         ThreadTaskCheckLogin taskCheck = new ThreadTaskCheckLogin(this, view);
         taskCheck.start();
@@ -66,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
             points = jsonObject0.getInt("points");
 
             MainActivity.sitter = new PetSitter(MainActivity.email,first,last,address,city,state,zip,lat,longi,points);
+            MainActivity.sitter.setEmail(MainActivity.email);
             goToHomePage(view);
 
 
@@ -108,4 +111,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    public String getPass() {
+        return pass;
+    }
 }

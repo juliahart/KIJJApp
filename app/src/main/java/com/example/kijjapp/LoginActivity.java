@@ -14,6 +14,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
+    //
+    // ISSUE : LOGS IN IF FIELDS ARE EMPTY
+    //
     public static final String CheckLoginURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/checkSitterLogin.php";
     //public static final String CheckLoginURL = "http://kijj.cs.loyola.edu/model/checkSitterLogin.php";
 

@@ -3,8 +3,6 @@ package com.example.kijjapp;
 
 public class PetOwner {
 
-
-
     private String email;
     private String first;
     private String last;

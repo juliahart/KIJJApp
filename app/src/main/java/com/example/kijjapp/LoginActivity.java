@@ -17,8 +17,8 @@ public class LoginActivity extends AppCompatActivity {
     //
     // ISSUE : LOGS IN IF FIELDS ARE EMPTY
     //
-    public static final String CheckLoginURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/checkSitterLogin.php";
-    //public static final String CheckLoginURL = "http://kijj.cs.loyola.edu/model/checkSitterLogin.php";
+   // public static final String CheckLoginURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/checkSitterLogin.php";
+    public static final String CheckLoginURL = "http://kijj.cs.loyola.edu/model/checkSitterLogin.php";
 
     //public static final String URL_JSON = "http://kijj.cs.loyola.edu/model/sitterProfile.php";
     public static final String URL_JSON = "http://klmatrangola.cs.loyola.edu/kijjTesting/siterProfile.php";

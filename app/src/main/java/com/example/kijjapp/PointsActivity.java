@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PointsActivity extends AppCompatActivity {
-    public static final String PointsURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/sitterPoints.php";
-    //public static final String PointsURL = "http://kijj.cs.loyola.edu/model/sitterPoints.php";
+    //public static final String PointsURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/sitterPoints.php";
+    public static final String PointsURL = "http://kijj.cs.loyola.edu/model/sitterPoints.php";
 
 
 
@@ -40,7 +40,8 @@ public class PointsActivity extends AppCompatActivity {
     /*
      * TO DO!!
      */
-    public void redeemPoints(View v)
+    public void redeemPoints()
     {
+
     }
 }

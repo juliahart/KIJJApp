@@ -14,8 +14,8 @@ import org.json.JSONObject;
 
 public class SignUpActivity extends AppCompatActivity {
     private String pass;
-    public static final String SignupURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/sitterSignup.php";
-    //public static final String SignupURL = "http://kijj.cs.loyola.edu/model/sitterSignup.php";
+  //  public static final String SignupURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/sitterSignup.php";
+    public static final String SignupURL = "http://kijj.cs.loyola.edu/model/sitterSignup.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

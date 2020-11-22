@@ -15,7 +15,7 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
     //
-    // ISSUE : LOGS IN IF FIELDS ARE EMPTY
+    // ISSUE : LOGS IN IF FIELDS ARE EMPTY -- I think this is fixed now
     //
    // public static final String CheckLoginURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/checkSitterLogin.php";
     public static final String CheckLoginURL = "http://kijj.cs.loyola.edu/model/checkSitterLogin.php";
@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void isValidLogin(String s, View view) {
         Log.w("MA", "in isValidLogin "+s);
-        if(s.equals("true"))
+        if(s.equals("true") && !MainActivity.email.equals(""))
         {
             //update sitter info
 

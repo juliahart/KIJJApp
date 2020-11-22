@@ -55,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
         taskSignUp.start();
     }
 
-    /*
+    /**
      * Method to go to home page
      */
     public void goToHomePage(View view)
@@ -64,7 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
         startActivity( intent );
     }
 
-    /*
+    /**
      * Method to go back to previous view
      */
     public void goBack(View view){

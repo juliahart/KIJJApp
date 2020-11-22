@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*
+    /**
      * Method to go to login view
      */
     public void goToLoginPage(View view){
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity( intent );
     }
 
-    /*
+    /**
      * Method to go to sign up view
      */
     public void goToSignUp(View view)

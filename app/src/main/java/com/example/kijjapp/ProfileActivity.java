@@ -34,7 +34,7 @@ public class ProfileActivity extends AppCompatActivity {
         cityStateZipTV.setText(cityStateZip);
     }
 
-    /*
+    /**
     * method to go back to previous view
      */
     public void goBack(View view) {
@@ -42,7 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 
-    /*
+    /**
      * TO DO!!
      */
     public void editProfile(View view)

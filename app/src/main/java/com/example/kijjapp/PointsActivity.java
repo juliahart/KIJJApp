@@ -33,7 +33,7 @@ public class PointsActivity extends AppCompatActivity {
 
     }
 
-    /*
+    /**
      * Method to go to back to previous view (home)
      */
     public void goBack(View view) {
@@ -56,11 +56,13 @@ public class PointsActivity extends AppCompatActivity {
         else
         {
             showAlertHasPoints();
-            updatePointsView();
         }
 
     }
 
+    /**
+     * method to show alert if the user has enough points for a gift card
+     */
     public void showAlertHasPoints() {
         // setup the alert builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -73,6 +75,9 @@ public class PointsActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    /**
+     * Method to show alert if user doesn't have enough points for a gift card
+     */
     public void showAlertDialogNoPoints() {
         // setup the alert builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -84,6 +89,4 @@ public class PointsActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
-
 }

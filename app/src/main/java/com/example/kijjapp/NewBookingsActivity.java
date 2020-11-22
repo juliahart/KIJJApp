@@ -38,7 +38,7 @@ public class NewBookingsActivity extends AppCompatActivity {
         });
     }
 
-    /*
+    /**
      * Method to go to profile view
      */
     public void goToProfile(View view) {
@@ -46,14 +46,14 @@ public class NewBookingsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /*
+    /**
      * Method to go to new back to previous view (home)
      */
     public void goBack(View view) {
         finish();
     }
 
-    /*
+    /**
      * method to search for filtered bookings
      */
     public void search(View view) {

@@ -12,14 +12,14 @@ public class LearnMoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_learn);
     }
 
-    /*
+    /**
      * method to go back to previous view (new booking view)
      */
     public void goBack(View view) {
         finish();
     }
 
-    /*
+    /**
      * TO DO!!!!
      */
     public void apply(View view)

@@ -19,7 +19,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-    /*
+    /**
     * Method to go to the upcoming booking view
      */
     public void goToUpcomingBooking(View view){
@@ -28,7 +28,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity( intent );
     }
 
-    /*
+    /**
      * Method to go to new booking view
      */
     public void goToNewBooking(View view){
@@ -37,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity( intent );
     }
 
-    /*
+    /**
      * Method to go to profile view
      */
     public void goToProfile(View view){
@@ -46,7 +46,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity( intent );
     }
 
-    /*
+    /**
      * Method to go to points view
      */
     public void goToPoints(View view){
@@ -55,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity( intent );
     }
 
-    /*
+    /**
      * Method to go to back to previous view (login page/signup page)
      */
     public void goBack(View view) {

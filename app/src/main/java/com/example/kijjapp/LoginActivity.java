@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    /*
+    /**
      * Method to go to the home view
      */
     public void goToHomePage(View view)
@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity( intent );
     }
 
-    /*
+    /**
      * Method to go back to previous view (starting view)
      */
     public void goBack(View view){

@@ -35,7 +35,7 @@ public class UpcomingActivity extends AppCompatActivity {
 
     }
 
-    /*
+    /**
      * Method to go to profile view
      */
     public void goToProfile(View view){
@@ -45,7 +45,7 @@ public class UpcomingActivity extends AppCompatActivity {
     }
 
 
-    /*
+    /**
      * Method to go back to previous view
      */
     public void goBack(View view){

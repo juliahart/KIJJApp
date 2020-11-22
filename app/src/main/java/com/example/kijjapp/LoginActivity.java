@@ -102,7 +102,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void isValidLogin(String s, View view) {
         Log.w("MA", "in isValidLogin "+s);
-        if(s.equals("true") && !MainActivity.email.equals(""))
+        MainActivity.email = MainActivity.email.replaceAll(" ", "");
+        if(s.equals("true") && !MainActivity.email.isEmpty())
         {
             //update sitter info
 

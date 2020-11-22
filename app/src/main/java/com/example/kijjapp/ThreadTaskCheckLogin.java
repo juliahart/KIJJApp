@@ -37,9 +37,9 @@ public class ThreadTaskCheckLogin extends Thread {
               while( scan.hasNext( ) ) {
                   s += scan.nextLine( );
               }
-            activity.isValidLogin(s,view);
+              activity.isValidLogin(s,view);
               } catch( Exception e ) {
-                Log.w( "MA", "exception URL: " + e.getMessage() );
+                Log.w( "MA", "exception Login check: " + e.getMessage() );
               }
         }
 }

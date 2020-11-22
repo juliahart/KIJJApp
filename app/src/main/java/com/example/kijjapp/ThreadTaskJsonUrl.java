@@ -1,16 +1,19 @@
 package com.example.kijjapp;
 
 import android.util.Log;
+import android.view.View;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Scanner;
 
 public class ThreadTaskJsonUrl extends Thread {
-    private ProfileActivity activity;
+    private LoginActivity activity;
+    private View view;
 
-    public ThreadTaskJsonUrl( ProfileActivity fromActivity ) {
+    public ThreadTaskJsonUrl( LoginActivity fromActivity, View view ) {
         activity = fromActivity;
+        this.view = view;
     }
 
     public void run( ) {
@@ -19,7 +22,7 @@ public class ThreadTaskJsonUrl extends Thread {
 
         try {
             // create a URL
-            URL url = new URL(ProfileActivity.URL_JSON + "?email="+ MainActivity.email);
+            URL url = new URL(LoginActivity.URL_JSON + "?email="+ MainActivity.email);
             // create an input stream for the URL
             InputStream is = url.openStream();
             // read from that input stream
@@ -30,7 +33,7 @@ public class ThreadTaskJsonUrl extends Thread {
 
                 // s is expected to be a JSON string
             }
-            activity.updateViewWithJson(s);
+            activity.updateSitterWithJSON(s, view);
         } catch( Exception e ) {
             Log.w( "MA", "exception json: " + e.getMessage() );
         }

@@ -55,4 +55,5 @@
         android:layout_height="100dp"
         android:layout_width="200dp"
         android:onClick = "doLogin"/>
+
 </RelativeLayout>

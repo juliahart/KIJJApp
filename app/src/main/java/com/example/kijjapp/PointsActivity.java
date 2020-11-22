@@ -17,15 +17,14 @@ public class PointsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_points);
-        ThreadTaskPoints pointsThread = new ThreadTaskPoints(this);
-        pointsThread.start();
+        updatePointsView();
     }
 
-    public void updatePointsView(String s){
-        Log.w("MA", "points = "+s);
+    public void updatePointsView(){
+        Log.w("MA", "points = "+MainActivity.sitter.getPoints());
         TextView pointsTV = (TextView) findViewById( R.id.yourPoints );
-        pointsTV.setText( "You have: "+ s + " points" );
-        String left = String.valueOf( 25 - Integer.valueOf(s));
+        pointsTV.setText( "You have: "+ String.valueOf(MainActivity.sitter.getPoints())  + " points" );
+        String left = String.valueOf( 25 - MainActivity.sitter.getPoints());
         TextView leftTV = (TextView) findViewById( R.id.pointsToGet );
         leftTV.setText(left + " more points until you can redeem");
 

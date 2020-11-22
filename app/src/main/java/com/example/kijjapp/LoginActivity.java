@@ -5,13 +5,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
     public static final String CheckLoginURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/checkSitterLogin.php";
     //public static final String CheckLoginURL = "http://kijj.cs.loyola.edu/model/checkSitterLogin.php";
 
+    //public static final String URL_JSON = "http://kijj.cs.loyola.edu/model/sitterProfile.php";
+    public static final String URL_JSON = "http://klmatrangola.cs.loyola.edu/kijjTesting/siterProfile.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +35,47 @@ public class LoginActivity extends AppCompatActivity {
         //check password later
         ThreadTaskCheckLogin taskCheck = new ThreadTaskCheckLogin(this, view);
         taskCheck.start();
+    }
+
+    public void updateSitterWithJSON( String json, View view ) {
+        Log.w("MA", "Inside updateViewWithJson");
+        String first="";
+        String last="";
+        String address = "";
+        String city = "";
+        String state = "";
+        int zip;
+        double lat;
+        double longi;
+        int points;
+        try {
+            JSONArray jsonArray = new JSONArray(json);
+            JSONObject jsonObject0 = jsonArray.getJSONObject(0);
+
+            //get all the info
+            first = jsonObject0.getString("first");
+            Log.w("MA", "firstName: "+first);
+
+            last = jsonObject0.getString("last");
+            address = jsonObject0.getString("address");
+            city = jsonObject0.getString("city");
+            state = jsonObject0.getString("state");
+            zip = jsonObject0.getInt("zip");
+            lat = jsonObject0.getDouble("lat");
+            longi = jsonObject0.getDouble("long");
+            points = jsonObject0.getInt("points");
+
+            MainActivity.sitter = new PetSitter(MainActivity.email,first,last,address,city,state,zip,lat,longi,points);
+            goToHomePage(view);
+
+
+
+        } catch (JSONException jsone) {
+            Log.w("MA", "JSON exception: " + jsone.getMessage());
+        }
+
+
+
     }
 
     /*
@@ -50,8 +98,13 @@ public class LoginActivity extends AppCompatActivity {
         Log.w("MA", "in isValidLogin "+s);
         if(s.equals("true"))
         {
-            goToHomePage(view);
+            //update sitter info
+
+            ThreadTaskJsonUrl sitterInfo = new ThreadTaskJsonUrl(this,view);
+            sitterInfo.start();
+            //go to homepage
         }
+
     }
 
 

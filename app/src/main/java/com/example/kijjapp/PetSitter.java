@@ -26,6 +26,10 @@ public class PetSitter {
         this.points = points;
     }
 
+    public PetSitter() {
+
+    }
+
     public String getEmail() {
         return email;
     }

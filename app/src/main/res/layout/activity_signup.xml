@@ -29,7 +29,7 @@
 
     <Button
         android:id="@+id/back"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="3dp"
@@ -39,24 +39,24 @@
         android:onClick="goBack"
         android:text="@string/back" />
 
+
     <EditText
-        android:layout_below="@id/signup"
         android:id="@+id/first"
-        android:hint = "@string/first_name"
         android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
-        android:autofillHints="First Name"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup"
         android:layout_centerHorizontal="true"
-        />
+        android:layout_marginTop="10dp"
+        android:autofillHints="First Name"
+        android:hint="@string/first_name" />
 
     <EditText
         android:layout_below="@id/first"
         android:id="@+id/last"
         android:hint = "@string/last_name"
         android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:autofillHints="Last Name"
         android:layout_centerHorizontal="true"
         />
@@ -66,19 +66,54 @@
         android:id="@+id/address"
         android:hint = "@string/address"
         android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:autofillHints="Address"
         android:layout_centerHorizontal="true"
         />
 
     <EditText
         android:layout_below="@id/address"
+        android:id="@+id/city"
+        android:hint = "@string/city"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:autofillHints="@string/city"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:layout_below="@id/state"
+        android:id="@+id/zip"
+        android:hint = "@string/zip"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:autofillHints="@string/zip"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:layout_below="@id/city"
+        android:id="@+id/state"
+        android:hint = "@string/state"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:autofillHints="@string/state"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+    <EditText
+        android:layout_below="@id/zip"
         android:id="@+id/username"
         android:hint = "@string/username"
         android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:autofillHints="Create Username"
         android:layout_centerHorizontal="true"
         />
@@ -88,8 +123,8 @@
         android:layout_below="@id/username"
         android:hint="@string/password"
         android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:autofillHints="Create Password"
         android:layout_centerHorizontal="true" />
 
@@ -98,10 +133,11 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/colorAccent"
         android:layout_below="@+id/password"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
         android:text="@string/createAccount"
-        android:layout_height="75dp"
+        android:layout_height="wrap_content"
         android:layout_width="200dp"
-        android:onClick = "goToHomePage"/>
+        android:onClick = "doSignUP"/>
 </RelativeLayout>

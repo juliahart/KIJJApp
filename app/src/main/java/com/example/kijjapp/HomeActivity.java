@@ -3,17 +3,21 @@ package com.example.kijjapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 public class HomeActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     }
+
+
 
     /*
     * Method to go to the upcoming booking view
@@ -57,5 +61,6 @@ public class HomeActivity extends AppCompatActivity {
     public void goBack(View view) {
         finish();
     }
+
 
 }

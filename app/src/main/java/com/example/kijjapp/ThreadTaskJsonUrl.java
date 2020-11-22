@@ -19,7 +19,7 @@ public class ThreadTaskJsonUrl extends Thread {
 
         try {
             // create a URL
-            URL url = new URL(ProfileActivity.URL_JSON);
+            URL url = new URL(ProfileActivity.URL_JSON + "?email="+ MainActivity.email);
             // create an input stream for the URL
             InputStream is = url.openStream();
             // read from that input stream
@@ -32,7 +32,7 @@ public class ThreadTaskJsonUrl extends Thread {
             }
             activity.updateViewWithJson(s);
         } catch( Exception e ) {
-            Log.w( "MA", "exception: " + e.getMessage() );
+            Log.w( "MA", "exception json: " + e.getMessage() );
         }
     }
 }

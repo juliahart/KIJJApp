@@ -14,20 +14,11 @@ import org.json.JSONObject;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    // W/MA: exception: Cleartext HTTP traffic to kijj.cs.loyola.edu not permitted (cant get to kijj) this is an issue!!!
+    public static final String URL_JSON = "http://kijj.cs.loyola.edu/model/sitterProfile.php";
+    //public static final String URL_JSON = "http://klmatrangola.cs.loyola.edu/kijjTesting/siterProfile.php";
+    public static String email;
 
 
-    //public static final String URL = "http://klmatrangola.cs.loyola.edu/kijjTesting/testHi.php";
-
-    //public static final String URL_GET = "http://klmatrangola.cs.loyola.edu/kijjTesting/testTest.php?klmatrangola@loyola.edu"; //name=Jill&age=20
-
-  //  public static final String URL_JSON = "http://klmatrangola.cs.loyola.edu/kijjTesting/testJson.php";
-   // public static final String URL_POST = "http://klmatrangola.cs.loyola.edu/kijjTesting/testPost.php";
-    //public static final String URL = "http://hjfranceschi.cs.loyola.edu/cs489/hello.php";
-   // public static final String URL_GET = "http://hjfranceschi.cs.loyola.edu/cs489/test.php?name=Jill&age=20";
-
-   // public static final String URL_JSON = "http://hjfranceschi.cs.loyola.edu/cs489/json.php";
-   // public static final String URL_POST = "http://hjfranceschi.cs.loyola.edu/cs489/testPost.php";
 
 
     @Override
@@ -39,11 +30,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void isValidLogin(String s, View view)
+    {
+        if(s.equals("true"))
+        {
+            goToLoginPage(view);
+        }
+    }
 
     /*
      * Method to go to login view
      */
     public void goToLoginPage(View view){
+
         Intent intent = new Intent( this, LoginActivity.class );
         startActivity( intent );
     }

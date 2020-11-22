@@ -42,80 +42,52 @@
     <TextView
         android:id="@+id/prifileInfo"
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/profile"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:text="@string/profileInfo"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
     <TextView
-        android:id="@+id/first"
+        android:id="@+id/name"
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/prifileInfo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-    <TextView
-        android:id="@+id/last"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/first"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
     <TextView
         android:id="@+id/address"
         android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/last"
+        android:layout_height="30dp"
+        android:layout_below="@+id/name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:gravity="center_horizontal"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
     <TextView
-        android:id="@+id/city"
+        android:id="@+id/cityStateZip"
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/address"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-    <TextView
-        android:id="@+id/state"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/city"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-    <TextView
-        android:id="@+id/zip"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/state"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
 
     <Button
         android:id="@+id/editProfile"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorAccent"
-        android:layout_below="@+id/zip"
+        android:layout_below="@+id/cityStateZip"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:text="@string/edit"

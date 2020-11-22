@@ -17,7 +17,7 @@ public class ThreadTaskUrl extends Thread {
         // update View
         Log.w( "MA", "Inside run URL" );
 
-      //  try {
+      //   try {
             //create a URL
            // URL url = new URL(ProfileActivity.URL);
             // create an input stream for the URL

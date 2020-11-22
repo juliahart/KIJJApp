@@ -1,10 +1,13 @@
 package com.example.kijjapp;
 
+
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PointsActivity extends AppCompatActivity {
@@ -37,11 +40,50 @@ public class PointsActivity extends AppCompatActivity {
         finish();
     }
 
-    /*
-     * TO DO!!
+
+
+    /**
+     * I think that this is working
      */
-    public void redeemPoints()
+    public void redeemPoints(View v)
     {
+        int points;
+        points = MainActivity.sitter.getPoints();
+        if(points < 25) {
+            showAlertDialogNoPoints();
+            updatePointsView();
+        }
+        else
+        {
+            showAlertHasPoints();
+            updatePointsView();
+        }
 
     }
+
+    public void showAlertHasPoints() {
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Gift Card!");
+        builder.setMessage("You get a $25 Amazon Gift Card");
+        // add a button
+        builder.setPositiveButton("OK", null);
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void showAlertDialogNoPoints() {
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Sorry!");
+        builder.setMessage("You don't have enough points to redeem a gift card.");
+        // add a button
+        builder.setPositiveButton("OK", null);
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
 }

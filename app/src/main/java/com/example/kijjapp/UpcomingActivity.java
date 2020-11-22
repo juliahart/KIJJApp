@@ -84,8 +84,9 @@ public class UpcomingActivity extends AppCompatActivity {
         return bookingsList;
     }
 
-    /*
+    /**
     * This should take the arraylist and put it into a string and onto the textView, but need php to check
+     * TO DO!!!! CHECK THIS!!!!
      */
     public void setTextViewValues (ArrayList<Booking> vals, TextView text) {
         //Variable to hold all the values

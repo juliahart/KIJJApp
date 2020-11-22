@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PointsActivity extends AppCompatActivity {
     public static final String PointsURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/sitterPoints.php";
+    //public static final String PointsURL = "http://kijj.cs.loyola.edu/model/sitterPoints.php";
+
 
 
     @Override

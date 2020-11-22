@@ -9,8 +9,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
-   // public static final String CheckLoginURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/checkSitterLogin.php";
-    public static final String CheckLoginURL = "http://kijj.cs.loyola.edu/model/checkSitterLogin.php";
+    public static final String CheckLoginURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/checkSitterLogin.php";
+    //public static final String CheckLoginURL = "http://kijj.cs.loyola.edu/model/checkSitterLogin.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

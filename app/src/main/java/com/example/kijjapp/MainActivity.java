@@ -14,8 +14,8 @@ import org.json.JSONObject;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String URL_JSON = "http://kijj.cs.loyola.edu/model/sitterProfile.php";
-    //public static final String URL_JSON = "http://klmatrangola.cs.loyola.edu/kijjTesting/siterProfile.php";
+    //public static final String URL_JSON = "http://kijj.cs.loyola.edu/model/sitterProfile.php";
+    public static final String URL_JSON = "http://klmatrangola.cs.loyola.edu/kijjTesting/siterProfile.php";
     public static String email;
 
 

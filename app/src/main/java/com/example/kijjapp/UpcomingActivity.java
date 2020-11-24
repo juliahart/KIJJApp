@@ -1,5 +1,6 @@
 package com.example.kijjapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,11 +29,6 @@ public class UpcomingActivity extends AppCompatActivity {
         ThreadTaskUpcomingBookings taskUpcomingBookings = new ThreadTaskUpcomingBookings(this);
         taskUpcomingBookings.start();
 
-        //NEED TO CHECK & SEE IF THIS WORKS!!
-        updateBookingsArray(URL_upcomingInfo);
-        TextView bookingTV = (TextView) findViewById(R.id.booking);
-        setTextViewValues(bookingsList, bookingTV);
-
     }
 
     /**
@@ -52,7 +48,12 @@ public class UpcomingActivity extends AppCompatActivity {
             finish();
     }
 
+    @SuppressLint("SetTextI18n")
     public void updateBookingsArray(String s) {
+        String end = null;
+        String start = null;
+        String name = null;
+        String type = null;
         try{
         JSONArray jsonArray = new JSONArray(s);
         int numBookings = jsonArray.length();
@@ -69,10 +70,18 @@ public class UpcomingActivity extends AppCompatActivity {
             Booking tempBooking = new Booking(bookingi.getInt("id"), MainActivity.sitter, tempOwner,
                     bookingi.getString("start"), bookingi.getString("end"));
             bookingsList.add(tempBooking);
+            name  = tempOwner.getFirst();
+            type = tempOwner.getType();
+            start  = tempBooking.getStartDate();
+            end = tempBooking.getStartDate();
         }
         //View needed for each booking...
-         //   TextView bookingTV = (TextView) findViewById(R.id.booking);
-         //   setTextViewValues(bookingsList, bookingTV);
+            for(int i = 0; i < bookingsList.size(); i++)
+            {
+                TextView tv = (TextView) findViewById( R.id.booking );
+                tv.setText("Name: " + name + ", Type: " + type + ", " + start + " - " + end);
+            }
+
 
         } catch (
             JSONException jsone) {
@@ -84,21 +93,6 @@ public class UpcomingActivity extends AppCompatActivity {
         return bookingsList;
     }
 
-    /**
-    * This should take the arraylist and put it into a string and onto the textView, but need php to check
-     * TO DO!!!! CHECK THIS!!!!
-     */
-    public void setTextViewValues (ArrayList<Booking> vals, TextView text) {
-        //Variable to hold all the values
-        String output = "";
-
-        for (int i = 0; i < vals.size(); i++) {
-            //Append all the values to a string
-            output += vals.get(i);
-        }
-        //Set the textview to the output string
-        text.setText(output);
-    }
 
     public void setBookingsList(ArrayList<Booking> bookingsList) {
         this.bookingsList = bookingsList;

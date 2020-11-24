@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class ThreadTaskJsonUrl extends Thread {
     private LoginActivity activity;
+    private UpcomingActivity act;
     private View view;
 
     public ThreadTaskJsonUrl( LoginActivity fromActivity, View view ) {
@@ -34,6 +35,7 @@ public class ThreadTaskJsonUrl extends Thread {
                 // s is expected to be a JSON string
             }
             activity.updateSitterWithJSON(s, view);
+            act.updateBookingsArray(s);
         } catch( Exception e ) {
             Log.w( "MA", "exception json: " + e.getMessage() );
         }

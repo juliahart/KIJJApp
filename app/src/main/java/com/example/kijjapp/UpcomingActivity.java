@@ -15,8 +15,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class UpcomingActivity extends AppCompatActivity {
-    public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
-    //public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
+    //public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
+    public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
 
 
 

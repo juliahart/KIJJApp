@@ -50,8 +50,8 @@ public class UpcomingActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     public void updateBookingsArray(String s) {
-        String end = null;
-        String start = null;
+        String endDate = null;
+        String startDate = null;
         String name = null;
         String type = null;
         try{
@@ -69,18 +69,21 @@ public class UpcomingActivity extends AppCompatActivity {
                     owneri.getString("breed"), owneri.getString("petName"));
             Booking tempBooking = new Booking(bookingi.getInt("id"), MainActivity.sitter, tempOwner,
                     bookingi.getString("start"), bookingi.getString("end"));
-            bookingsList.add(tempBooking);
+
+            startDate  = tempBooking.getStartDate();
+            endDate = tempBooking.getStartDate();
             name  = tempOwner.getFirst();
             type = tempOwner.getType();
-            start  = tempBooking.getStartDate();
-            end = tempBooking.getStartDate();
+
+            bookingsList.add(tempBooking);
+
         }
         //View needed for each booking...
-            for(int i = 0; i < bookingsList.size(); i++)
+           for(int i = 0; i < bookingsList.size(); i++)
             {
                 TextView tv = (TextView) findViewById( R.id.booking );
-                tv.setText("Name: " + name + ", Type: " + type + ", " + start + " - " + end);
-            }
+                tv.setText("Name: " + name + ", Type: " + type + ", start date: " + startDate + ", end date: " + endDate);
+           }
 
 
         } catch (

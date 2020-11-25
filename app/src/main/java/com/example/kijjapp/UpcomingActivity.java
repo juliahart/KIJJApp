@@ -2,10 +2,20 @@ package com.example.kijjapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,12 +24,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UpcomingActivity extends AppCompatActivity {
     //public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
     public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
 
-
+    private ListView mainListView ;
+    private ArrayAdapter<String> listAdapter ;
 
     private ArrayList<Booking> bookingsList = new ArrayList<>();
     @Override
@@ -28,6 +40,15 @@ public class UpcomingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_upcoming);
         ThreadTaskUpcomingBookings taskUpcomingBookings = new ThreadTaskUpcomingBookings(this);
         taskUpcomingBookings.start();
+
+        // Find the ListView resource.
+        mainListView = (ListView) findViewById( R.id.mainListView );
+        ArrayList<String> books = new ArrayList<String>();
+        listAdapter = new ArrayAdapter<String>(this, R.layout.listview, books);
+
+        listAdapter.add("Bookings");
+
+        mainListView.setAdapter( listAdapter );
 
     }
 
@@ -75,16 +96,14 @@ public class UpcomingActivity extends AppCompatActivity {
             name  = tempOwner.getFirst();
             type = tempOwner.getType();
 
+            TextView textView = (TextView) findViewById(R.id.booking);
+            textView.setText("Name: " + name + "\nType: " + type + "\nStart Date: " + startDate +"\nEnd Date: " +endDate);
+
+
             bookingsList.add(tempBooking);
 
         }
         //View needed for each booking...
-           for(int i = 0; i < bookingsList.size(); i++)
-            {
-                TextView tv = (TextView) findViewById( R.id.booking );
-                tv.setText("Name: " + name + ", Type: " + type + ", start date: " + startDate + ", end date: " + endDate);
-           }
-
 
         } catch (
             JSONException jsone) {

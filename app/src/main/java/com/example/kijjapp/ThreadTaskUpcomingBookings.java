@@ -30,7 +30,7 @@ public class ThreadTaskUpcomingBookings extends Thread{
 
                 // s is expected to be a JSON string
             }
-            Log.w("booking Array: ", s);
+           // Log.w("booking Array: ", s);
             activity.updateBookingsArray(s);
         } catch( Exception e ) {
             Log.w( "MA", "exception json: " + e.getMessage() );

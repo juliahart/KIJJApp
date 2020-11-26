@@ -76,31 +76,43 @@ public class UpcomingActivity extends AppCompatActivity {
         String name = null;
         String type = null;
         try{
-        JSONArray jsonArray = new JSONArray(s);
-        int numBookings = jsonArray.length();
+            Log.w("MA", "All of them: "+ s);
+            JSONArray jsonArray = new JSONArray(s);
+            int numBookings = jsonArray.length();
+            Log.w("MA", "num Bookings: "+numBookings);
         for(int i = 0; i < numBookings; i++)
         {
-            JSONObject jsonObjecti = jsonArray.getJSONObject(i);
-            Log.w("MA", "jArri: "+ jsonObjecti);
-            JSONObject bookingi = jsonObjecti.getJSONObject("booking");
-            JSONObject owneri = jsonObjecti.getJSONObject("owner");
+           // JSONObject jsonObjecti = jsonArray.getJSONArray(i);
+            JSONObject jsonObji = new JSONObject(jsonArray.getString(i));
+            String bookingi_str = jsonObji.getString("booking");
+
+            JSONObject bookingi = new JSONObject(bookingi_str);
+
+            JSONObject owneri = jsonObji.getJSONObject("owner");
+
             PetOwner tempOwner = new PetOwner(bookingi.getString("ownerEmail"), owneri.getString("first"), owneri.getString("last"),
                     owneri.getString("address"), owneri.getString("city"), owneri.getString("state"), owneri.getInt("zip"),
                     owneri.getDouble("lat"), owneri.getDouble("long"), owneri.getString("desc"), owneri.getString("type"),
                     owneri.getString("breed"), owneri.getString("petName"));
+
             Booking tempBooking = new Booking(bookingi.getInt("id"), MainActivity.sitter, tempOwner,
                     bookingi.getString("start"), bookingi.getString("end"));
+
 
             startDate  = tempBooking.getStartDate();
             endDate = tempBooking.getStartDate();
             name  = tempOwner.getFirst();
             type = tempOwner.getType();
 
+            // This only outputs 1 booking .... will need to use ListView
+            //
+
             TextView textView = (TextView) findViewById(R.id.booking);
-            textView.setText("Name: " + name + "\nType: " + type + "\nStart Date: " + startDate +"\nEnd Date: " +endDate);
+            if(textView != null) {
+                textView.setText("Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate);
+            }
 
-
-            bookingsList.add(tempBooking);
+           bookingsList.add(tempBooking);
 
         }
         //View needed for each booking...

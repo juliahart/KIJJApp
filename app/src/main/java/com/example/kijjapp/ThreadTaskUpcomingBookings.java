@@ -1,6 +1,7 @@
 package com.example.kijjapp;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 
 public class ThreadTaskUpcomingBookings extends Thread{
     private UpcomingActivity activity;
+    ListView listView;
 
     public ThreadTaskUpcomingBookings( UpcomingActivity fromActivity) {
         activity = fromActivity;
@@ -32,6 +34,7 @@ public class ThreadTaskUpcomingBookings extends Thread{
             }
            // Log.w("booking Array: ", s);
             activity.updateBookingsArray(s);
+            activity.createList(s);
         } catch( Exception e ) {
             Log.w( "MA", "exception json: " + e.getMessage() );
         }

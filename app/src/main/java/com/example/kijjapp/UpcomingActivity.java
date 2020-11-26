@@ -2,20 +2,12 @@ package com.example.kijjapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,14 +16,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class UpcomingActivity extends AppCompatActivity {
     //public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
     public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
 
-    private ListView mainListView ;
+    ListView listView;
     private ArrayAdapter<String> listAdapter ;
+
 
     private ArrayList<Booking> bookingsList = new ArrayList<>();
     @Override
@@ -41,15 +33,14 @@ public class UpcomingActivity extends AppCompatActivity {
         ThreadTaskUpcomingBookings taskUpcomingBookings = new ThreadTaskUpcomingBookings(this);
         taskUpcomingBookings.start();
 
-        // Find the ListView resource.
-        mainListView = (ListView) findViewById( R.id.mainListView );
-        ArrayList<String> books = new ArrayList<String>();
-        listAdapter = new ArrayAdapter<String>(this, R.layout.listview, books);
 
-        listAdapter.add("Bookings");
+    }
 
-        mainListView.setAdapter( listAdapter );
-
+   public void createList(String s)
+    {
+        CustomListAdapter whatever = new CustomListAdapter(this, new String[]{s});
+        listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(whatever);
     }
 
     /**
@@ -123,8 +114,9 @@ public class UpcomingActivity extends AppCompatActivity {
         }
     }
 
-    public ArrayList<Booking> getBookingsList() {
-        return bookingsList;
+    public String getBookingsList()
+    {
+        return bookingsList.toString();
     }
 
 

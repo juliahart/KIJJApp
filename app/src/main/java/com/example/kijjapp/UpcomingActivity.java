@@ -70,7 +70,7 @@ public class UpcomingActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     public void updateBookingsArray(String s) {
-        String [] test;
+        String [] test = new String[0];
 
         String endDate = null;
         String startDate = null;
@@ -106,29 +106,22 @@ public class UpcomingActivity extends AppCompatActivity {
                 name = tempOwner.getFirst();
                 type = tempOwner.getType();
 
-                // This only outputs 1 booking .... will need to use ListView
-                //
-                TextView textView = (TextView) findViewById(R.id.booking);
                 bookingsList.add(tempBooking);
 
 
-                        test = new String[]{"Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate};
-                        CustomListAdapter whatever = new CustomListAdapter(this, test);
-                        listView.setAdapter(whatever);
-                        
-        }
-
-        //View needed for each booking.
-            //
-       // test = 
-
+                // This only outputs 1 booking ( I think that it might not retrieve all the bookings
+                // the size of bookingsList is 1)
+                for (int j = 0; j < bookingsList.size(); j++)
+                {
+                    test = new String[]{String.valueOf(jsonArray.length()), "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate, "test"};
+                    CustomListAdapter whatever = new CustomListAdapter(this, test);
+                    listView.setAdapter(whatever);
+                }
+            }
         } catch (
             JSONException jsone) {
             Log.w("MA", "JSON exception: " + jsone.getMessage());
         }
-
-
-
     }
 
 

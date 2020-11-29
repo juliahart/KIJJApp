@@ -187,52 +187,11 @@
         android:id="@+id/line"
         android:layout_below="@+id/textView"/>
 
-    <TextView
-        android:id="@+id/booking"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/line"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:gravity="center_horizontal"
-        android:text="@string/info"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-    <Button
-        android:id="@+id/goToProfile"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorAccent"
-        android:layout_below="@+id/booking"
-        android:layout_centerHorizontal="true"
-        android:text="@string/LearnMore"
-        android:layout_height="50dp"
-        android:layout_width="300dp"
-        android:onClick="goToProfile"/>
-
-
-    <TextView
-        android:id="@+id/booking2"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/goToProfile"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:gravity="center_horizontal"
-        android:text="@string/info"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-    <Button
-        android:id="@+id/goToProfile2"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorAccent"
-        android:layout_below="@+id/booking2"
-        android:layout_centerHorizontal="true"
-        android:text="@string/LearnMore"
-        android:layout_height="50dp"
-        android:layout_width="300dp"
-        android:onClick="goToProfile"/>
-
+    <ListView
+        android:id="@+id/SearchListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line">
+    </ListView>
 
 </RelativeLayout>

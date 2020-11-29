@@ -28,7 +28,7 @@ public class CustomListAdapter extends ArrayAdapter {
         LayoutInflater inflater=context.getLayoutInflater();
         View rowView=inflater.inflate(R.layout.listview, null,true);
 
-        //this code gets references to objects in the listview_row.xml file
+        //this code gets references to objects in the listview file
         TextView nameTextField = (TextView) rowView.findViewById(R.id.name);
 
         //this code sets the values of the objects to values from the arrays

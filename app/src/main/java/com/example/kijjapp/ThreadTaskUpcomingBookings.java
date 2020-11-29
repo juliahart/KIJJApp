@@ -34,7 +34,7 @@ public class ThreadTaskUpcomingBookings extends Thread{
             }
            // Log.w("booking Array: ", s);
             activity.updateBookingsArray(s);
-            activity.createList(s);
+           // activity.createList(s);
         } catch( Exception e ) {
             Log.w( "MA", "exception json: " + e.getMessage() );
         }

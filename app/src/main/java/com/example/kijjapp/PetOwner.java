@@ -13,6 +13,26 @@ public class PetOwner {
     private double lat;
     private double longi;
     private String desc;
+
+    @Override
+    public String toString() {
+        return "PetOwner{" +
+                "email='" + email + '\'' +
+                ", first='" + first + '\'' +
+                ", last='" + last + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip=" + zip +
+                ", lat=" + lat +
+                ", longi=" + longi +
+                ", desc='" + desc + '\'' +
+                ", type='" + type + '\'' +
+                ", breed='" + breed + '\'' +
+                ", petName='" + petName + '\'' +
+                '}';
+    }
+
     private String type;
     private String breed;
     private String petName;

@@ -70,7 +70,7 @@ public class UpcomingActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     public void updateBookingsArray(String s) {
-        String [] test = new String[0];
+
 
         String endDate = null;
         String startDate = null;
@@ -112,20 +112,35 @@ public class UpcomingActivity extends AppCompatActivity {
                 //exception json: Only the original thread that created a view hierarchy can touch its views.
 
             }
-            Log.w("MA", "bl size: "+bookingsList.size());
-            for(int i = 0; i < bookingsList.size(); i++) {
-                Log.w("MA", "booking id: "+ bookingsList.get(i).getId());
-            }
             for (int j = 0; j < bookingsList.size(); j++)
             {
+                Log.w("MA", "booking id: "+ bookingsList.get(j).getId());
                 startDate = bookingsList.get(j).getStartDate();
                 endDate = bookingsList.get(j).getStartDate();
                 name = bookingsList.get(j).getPetOwner().getPetName();
                 type = bookingsList.get(j).getPetOwner().getType();
-                test = new String[]{String.valueOf(bookingsList.size()), "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate, "test"};
-                CustomListAdapter whatever = new CustomListAdapter(this, test);
-                listView.setAdapter(whatever);
+                Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate+ "test");
             }
+
+
+            Log.w("MA","New spot" );
+            String [] test = new String[bookingsList.size()];
+            for (int j = 0; j < bookingsList.size(); j++)
+            {
+                Log.w("MA", "booking id: "+ bookingsList.get(j).getId());
+                startDate = bookingsList.get(j).getStartDate();
+                endDate = bookingsList.get(j).getStartDate();
+                name = bookingsList.get(j).getPetOwner().getPetName();
+                type = bookingsList.get(j).getPetOwner().getType();
+                //error here?
+                //String list
+                //test = new String[]{String.valueOf(bookingsList.size()), "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate, "test"};
+                test[j] =  "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate;
+                Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate+ "test");
+                //error here
+            }
+            CustomListAdapter whatever = new CustomListAdapter(this, test);
+            listView.setAdapter(whatever);
         } catch (
             JSONException jsone) {
             Log.w("MA", "JSON exception: " + jsone.getMessage());

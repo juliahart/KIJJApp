@@ -28,8 +28,8 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class UpcomingActivity extends AppCompatActivity {
-    public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
-   // public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
+    //public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
+    public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
 
     ListView listView;
   //  private ArrayAdapter<String> listAdapter ;
@@ -101,22 +101,30 @@ public class UpcomingActivity extends AppCompatActivity {
                         bookingi.getString("start"), bookingi.getString("end"));
 
 
-                startDate = tempBooking.getStartDate();
-                endDate = tempBooking.getStartDate();
-                name = tempOwner.getFirst();
-                type = tempOwner.getType();
+
 
                 bookingsList.add(tempBooking);
 
 
                 // This only outputs 1 booking ( I think that it might not retrieve all the bookings
                 // the size of bookingsList is 1)
-                for (int j = 0; j < bookingsList.size(); j++)
-                {
-                    test = new String[]{String.valueOf(jsonArray.length()), "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate, "test"};
-                    CustomListAdapter whatever = new CustomListAdapter(this, test);
-                    listView.setAdapter(whatever);
-                }
+                //doesnt work for kijj forgot to change php there
+                //exception json: Only the original thread that created a view hierarchy can touch its views.
+
+            }
+            Log.w("MA", "bl size: "+bookingsList.size());
+            for(int i = 0; i < bookingsList.size(); i++) {
+                Log.w("MA", "booking id: "+ bookingsList.get(i).getId());
+            }
+            for (int j = 0; j < bookingsList.size(); j++)
+            {
+                startDate = bookingsList.get(j).getStartDate();
+                endDate = bookingsList.get(j).getStartDate();
+                name = bookingsList.get(j).getPetOwner().getPetName();
+                type = bookingsList.get(j).getPetOwner().getType();
+                test = new String[]{String.valueOf(bookingsList.size()), "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate, "test"};
+                CustomListAdapter whatever = new CustomListAdapter(this, test);
+                listView.setAdapter(whatever);
             }
         } catch (
             JSONException jsone) {

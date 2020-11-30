@@ -52,6 +52,9 @@
         <activity android:name=".SignUpActivity">
         </activity>
 
+        <activity android:name=".OwnerProfileActivity">
+        </activity>
+
 
 
     </application>

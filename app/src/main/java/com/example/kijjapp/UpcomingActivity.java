@@ -147,4 +147,15 @@ public class UpcomingActivity extends AppCompatActivity {
     public void setBookingsList(ArrayList<Booking> bookingsList) {
         this.bookingsList = bookingsList;
     }
+
+    public void finished()
+    {
+
+    }
+
+    public void viewOwner(View view) {
+        Intent intent = new Intent( this, OwnerProfileActivity.class );
+        startActivity( intent );
+    }
 }
+

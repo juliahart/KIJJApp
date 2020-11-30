@@ -31,7 +31,6 @@ public class UpcomingActivity extends AppCompatActivity {
     //public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
     public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
 
-    ListView listView;
   //  private ArrayAdapter<String> listAdapter ;
 
 
@@ -46,7 +45,6 @@ public class UpcomingActivity extends AppCompatActivity {
         //String [] test;
        // test = new String[]{"mary", "john"};
         //CustomListAdapter whatever = new CustomListAdapter(this, test);
-        listView = (ListView) findViewById(R.id.listView);
 
     }
 
@@ -70,6 +68,9 @@ public class UpcomingActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     public void updateBookingsArray(String s) {
+
+        ListView listView;
+        listView = (ListView) findViewById(R.id.listView);
 
 
         String endDate = null;
@@ -112,18 +113,7 @@ public class UpcomingActivity extends AppCompatActivity {
                 //exception json: Only the original thread that created a view hierarchy can touch its views.
 
             }
-            for (int j = 0; j < bookingsList.size(); j++)
-            {
-                Log.w("MA", "booking id: "+ bookingsList.get(j).getId());
-                startDate = bookingsList.get(j).getStartDate();
-                endDate = bookingsList.get(j).getStartDate();
-                name = bookingsList.get(j).getPetOwner().getPetName();
-                type = bookingsList.get(j).getPetOwner().getType();
-                Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate+ "test");
-            }
 
-
-            Log.w("MA","New spot" );
             String [] test = new String[bookingsList.size()];
             for (int j = 0; j < bookingsList.size(); j++)
             {

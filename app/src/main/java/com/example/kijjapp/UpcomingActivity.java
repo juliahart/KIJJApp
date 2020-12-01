@@ -3,20 +3,10 @@ package com.example.kijjapp;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,8 +15,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 public class UpcomingActivity extends AppCompatActivity {
     //public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
@@ -96,7 +84,7 @@ int length;
 
                 PetOwner tempOwner = new PetOwner(bookingi.getString("ownerEmail"), owneri.getString("first"), owneri.getString("last"),
                         owneri.getString("address"), owneri.getString("city"), owneri.getString("state"), owneri.getInt("zip"),
-                        owneri.getDouble("lat"), owneri.getDouble("long"), owneri.getString("desc"), owneri.getString("type"),
+                        owneri.getDouble("lat"), owneri.getDouble("long"), owneri.getString("desc"), owneri.getDouble("rating"), owneri.getString("type"),
                         owneri.getString("breed"), owneri.getString("petName"));
 
                 Booking tempBooking = new Booking(bookingi.getInt("id"), MainActivity.sitter, tempOwner,

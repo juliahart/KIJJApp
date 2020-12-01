@@ -14,30 +14,17 @@ public class PetOwner {
     private double longi;
     private String desc;
 
-    @Override
-    public String toString() {
-        return "PetOwner{" +
-                "email='" + email + '\'' +
-                ", first='" + first + '\'' +
-                ", last='" + last + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zip=" + zip +
-                ", lat=" + lat +
-                ", longi=" + longi +
-                ", desc='" + desc + '\'' +
-                ", type='" + type + '\'' +
-                ", breed='" + breed + '\'' +
-                ", petName='" + petName + '\'' +
-                '}';
-    }
+
+
+    private double rating;
+
+
 
     private String type;
     private String breed;
     private String petName;
 
-    public PetOwner(String email, String first, String last, String address, String city, String state, int zip, double lat, double longi, String desc, String type, String breed, String petName) {
+    public PetOwner(String email, String first, String last, String address, String city, String state, int zip, double lat, double longi, String desc, double rating, String type, String breed, String petName) {
         this.email = email;
         this.first = first;
         this.last = last;
@@ -48,6 +35,7 @@ public class PetOwner {
         this.lat = lat;
         this.longi = longi;
         this.desc = desc;
+        this.rating = rating;
         this.type = type;
         this.breed = breed;
         this.petName = petName;
@@ -153,7 +141,34 @@ public class PetOwner {
         return desc;
     }
 
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+    @Override
+    public String toString() {
+        return "PetOwner{" +
+                "email='" + email + '\'' +
+                ", first='" + first + '\'' +
+                ", last='" + last + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip=" + zip +
+                ", lat=" + lat +
+                ", longi=" + longi +
+                ", desc='" + desc + '\'' +
+                ", type='" + type + '\'' +
+                ", breed='" + breed + '\'' +
+                ", petName='" + petName + '\'' +
+                ", rating='" + rating + '\'' +
+                '}';
     }
 }

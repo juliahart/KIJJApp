@@ -99,7 +99,7 @@ public class UpcomingActivity extends AppCompatActivity {
                         owneri.getString("breed"), owneri.getString("petName"));
 
                 Booking tempBooking = new Booking(bookingi.getInt("id"), MainActivity.sitter, tempOwner,
-                        bookingi.getString("start"), bookingi.getString("end"));
+                        bookingi.getString("start"), bookingi.getString("end"), bookingi.getString("status"));
 
 
 

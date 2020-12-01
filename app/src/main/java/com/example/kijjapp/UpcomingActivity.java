@@ -136,7 +136,6 @@ int length;
                 public void run() {
                     CustomListAdapter whatever = new CustomListAdapter((Activity) listView.getContext(), test);
                     listView.setAdapter(whatever);
-
                 }
             });
 

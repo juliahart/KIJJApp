@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Single List Item Design -->
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".UpcomingActivity">
+
+<TextView
     android:id="@+id/newBooking"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="10dip"
     android:textSize="16dip"
-    android:textStyle="bold" >
-</TextView>
+    android:textStyle="bold" />
+
+<Button
+    android:id ="@+id/moreInfo"
+    android:layout_width="150dp"
+    android:layout_height="40dp"
+    android:layout_alignRight="@+id/newBooking"
+    android:text="@string/LearnMore"
+    android:background="@color/colorPrimary"
+    android:layout_marginBottom="3dp"
+    android:layout_marginTop="3dp"
+    android:textColor="@color/colorAccent"
+    android:layout_marginRight="3dp"
+    android:onClick="viewOwner"
+    />
+</RelativeLayout>

@@ -201,7 +201,7 @@ public class NewBookingsActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-             CustomListAdapter whatever = new CustomListAdapter((Activity) seatchListView.getContext(), test);
+             SearchCustomAdapter whatever = new SearchCustomAdapter((Activity) seatchListView.getContext(), test);
              seatchListView.setAdapter(whatever);
             }
         });

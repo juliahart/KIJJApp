@@ -14,24 +14,15 @@ public class OwnerProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ownerprofile);
-        //showProfile();
+        showProfile();
+
 
     }
-/*
+
     public void showProfile(){
-        TextView nameTV = (TextView) findViewById(R.id.name);
-        String name = "Name: " + MainActivity.owner.getFirst()+ " "+ MainActivity.owner.getLast();
-        nameTV.setText(name);
-        TextView addyTV = (TextView) findViewById(R.id.address);
-        String addy = "Address: " + MainActivity.owner.getAddress();
-        addyTV.setText(addy);
-        TextView cityStateZipTV = (TextView) findViewById(R.id.cityStateZip);
-        String cityStateZip = MainActivity.owner.getCity() + ", " + MainActivity.owner.getState() + ", " + Integer.valueOf(MainActivity.owner.getZip());
-        cityStateZipTV.setText(cityStateZip);
     }
 
 
- */
 
     /**
      * method to go back to previous view

@@ -17,12 +17,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class UpcomingActivity extends AppCompatActivity {
-    //public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
+   // public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
     public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
+    public static String ownerInfo;
 
-  //  private ArrayAdapter<String> listAdapter ;
-int length;
-
+    //  private ArrayAdapter<String> listAdapter ;
+    int length;
+    //String ownerInfo;
     private ArrayList<Booking> bookingsList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +112,7 @@ int length;
                 startDate = bookingsList.get(j).getStartDate();
                 endDate = bookingsList.get(j).getStartDate();
                 name = bookingsList.get(j).getPetOwner().getPetName();
+
                 type = bookingsList.get(j).getPetOwner().getType();
                 //error here?
                 //String list
@@ -145,14 +147,12 @@ int length;
         this.bookingsList = bookingsList;
     }
 
-    public void finished()
-    {
-
-    }
-
     public void viewOwner(View view) {
         Intent intent = new Intent( this, OwnerProfileActivity.class );
         startActivity( intent );
+    }
+
+    public void finished(View view) {
     }
 }
 

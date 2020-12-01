@@ -6,15 +6,17 @@ public class Booking {
     private PetOwner petOwner;
     private String endDate;
     private String startDate;
+    private String status;
 
     public Booking(){}
 
-    public Booking(int id, PetSitter petSitter, PetOwner petOwner, String endDate, String startDate) {
+    public Booking(int id, PetSitter petSitter, PetOwner petOwner, String endDate, String startDate,String status) {
         this.id = id;
         this.petSitter = petSitter;
         this.petOwner = petOwner;
         this.endDate = endDate;
         this.startDate = startDate;
+        this.status = status;
     }
 
     public int getId() {
@@ -56,5 +58,13 @@ public class Booking {
 
     public void setPetOwner(PetOwner petOwner) {
         this.petOwner = petOwner;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

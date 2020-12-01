@@ -70,6 +70,7 @@
         android:text="@string/cat"
         android:layout_toEndOf="@id/checkBox1" />
 
+
     <TextView
         android:id="@+id/otherText"
         android:layout_width="wrap_content"
@@ -85,9 +86,10 @@
         android:layout_toRightOf="@id/checkBox2"
         android:text="@string/other" />
 
+
     <EditText
         android:id="@+id/checkBox3"
-        android:layout_width="300dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/type"
         android:layout_marginStart="12dp"
@@ -96,6 +98,16 @@
         android:layout_marginBottom="-1dp"
         android:layout_toEndOf="@+id/otherText"
         android:layout_toRightOf="@+id/otherText" />
+    <CheckBox
+        android:id="@+id/checkBoxAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/checkBox3"
+        android:layout_below="@+id/type"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="All"
+        android:layout_toEndOf="@id/checkBox3" />
 
     <TextView
         android:id = "@+id/breed"
@@ -104,13 +116,13 @@
         android:layout_height="wrap_content"
         android:text="@string/breed"/>
 
+
     <EditText
         android:id="@+id/checkBox4"
         android:layout_width="300dp"
-        android:layout_height = "wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/breed"
-        />
-
+        android:layout_marginTop="2dp" />
 
     <TextView
         android:layout_width="wrap_content"

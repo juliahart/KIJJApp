@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AbsSeekBar;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SeekBar;
@@ -16,7 +16,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 
 public class NewBookingsActivity extends AppCompatActivity {
@@ -24,10 +23,14 @@ public class NewBookingsActivity extends AppCompatActivity {
     private TextView tv;
     private SeekBar seekBar;
     private String breed;
+    private String wantDog;
+    private String wantCat;
+    private String wantOther;
+    private String wantAll;
+
     //public static final String URL_bookingInfo = "http://kijj.cs.loyola.edu/model/getValidBookings.php";
     public static final String URL_bookingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/getValidBookings.php";
     private ArrayList<Booking> validBookingsList = new ArrayList<>();
-    private ArrayList<Booking> allBookingsList = new ArrayList<>();
 
 
 
@@ -71,9 +74,41 @@ public class NewBookingsActivity extends AppCompatActivity {
      * method to search for filtered bookings
      */
     public void search(View view) {
+        //get info
+        CheckBox dogBox = (CheckBox) findViewById(R.id.checkBox1);
+        CheckBox catBox = (CheckBox) findViewById(R.id.checkBox2);
+        EditText OtherEt = (EditText) findViewById(R.id.checkBox3);
+        CheckBox allBox = (CheckBox) findViewById(R.id.checkBoxAll);
 
         EditText breedET = (EditText) findViewById(R.id.checkBox4);
-        validBookingsList = allBookingsList;
+
+        //handle type input
+        if(dogBox.isChecked())
+        {
+            wantDog = "Dog";
+        }
+        else{
+            wantDog = "noDog";
+        }
+        if(catBox.isChecked())
+        {
+            wantCat = "Cat";
+        }
+        else{
+            wantCat = "NoCat";
+        }
+        if(allBox.isChecked())
+        {
+            wantAll = "All";
+        }
+        else{
+            wantAll = "NotAll";
+        }
+        wantOther = OtherEt.getText().toString();
+        Log.w("MA", "wantOther: " + wantOther);
+
+
+        //handle breed input
         if(breedET.getText().toString().trim().length() > 0)
         {
             breed = breedET.getText().toString();
@@ -82,7 +117,9 @@ public class NewBookingsActivity extends AppCompatActivity {
             breed = "blank";
         }
         Log.w("MA", "Breed="+breed);
-        ThreadTaskAllBookings taskAllBookings = new ThreadTaskAllBookings(this);
+
+
+        ThreadTaskValidBookings taskAllBookings = new ThreadTaskValidBookings(this);
         taskAllBookings.start();
         Log.w("MA", "searching...");
     }
@@ -140,7 +177,6 @@ public class NewBookingsActivity extends AppCompatActivity {
             Log.w("MA", "JSON exception: " + jsone.getMessage());
         }
 
-        //boolean a = findValidBookings();
 
         Log.w("MA", "now Have: " + validBookingsList.size());
 
@@ -166,38 +202,6 @@ public class NewBookingsActivity extends AppCompatActivity {
 
     }
 
-    public boolean findValidBookings() {
-
-        Log.w("MA", "looking for valid things");
-        EditText breedET = (EditText) findViewById(R.id.checkBox4);
-        validBookingsList = allBookingsList;
-
-        for (int i = 0; i < allBookingsList.size(); i++) {
-            //see if closed
-            if (validBookingsList.get(i).getStatus().equals("closed")) {
-                validBookingsList.remove(validBookingsList.get(i));
-                Log.w("MA", "removing closed: " + allBookingsList.get(i).getId());
-            }
-            //see if type is input
-
-            //see if breed is input
-            else if (breedET.getText().toString().trim().length() > 0) {
-                if (!breedET.getText().toString().toLowerCase().equals(validBookingsList.get(i).getPetOwner().getBreed().toLowerCase())) {
-                    validBookingsList.remove(validBookingsList.get(i));
-                    Log.w("MA", "removing" + allBookingsList.get(i).getId() + ", looking for: "+ breedET.getText().toString().toLowerCase() + "  breed: " + validBookingsList.get(i).getPetOwner().getBreed().toLowerCase() );
-
-                }
-            }
-            //see if rating is input
-
-            //see if rating is input
-
-            //see if distance is input
-        }
-        Log.w("MA", "now Have: " + validBookingsList.size());
-
-        return true;
-    }
 
 
     public String getBreed() {
@@ -206,6 +210,38 @@ public class NewBookingsActivity extends AppCompatActivity {
 
     public void setBreed(String breed) {
         this.breed = breed;
+    }
+
+    public String getWantDog() {
+        return wantDog;
+    }
+
+    public void setWantDog(String wantDog) {
+        this.wantDog = wantDog;
+    }
+
+    public String getWantCat() {
+        return wantCat;
+    }
+
+    public void setWantCat(String wantCat) {
+        this.wantCat = wantCat;
+    }
+
+    public String getWantOther() {
+        return wantOther;
+    }
+
+    public void setWantOther(String wantOther) {
+        this.wantOther = wantOther;
+    }
+
+    public String getWantAll() {
+        return wantAll;
+    }
+
+    public void setWantAll(String wantAll) {
+        this.wantAll = wantAll;
     }
 }
 

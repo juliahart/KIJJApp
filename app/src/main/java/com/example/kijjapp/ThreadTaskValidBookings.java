@@ -11,11 +11,11 @@ import java.util.Scanner;
 import android.util.Log;
 
 
-public class ThreadTaskAllBookings extends Thread{
+public class ThreadTaskValidBookings extends Thread{
     private NewBookingsActivity activity;
     ListView listView;
 
-    public ThreadTaskAllBookings( NewBookingsActivity fromActivity) {
+    public ThreadTaskValidBookings(NewBookingsActivity fromActivity) {
         activity = fromActivity;
     }
 
@@ -25,7 +25,8 @@ public class ThreadTaskAllBookings extends Thread{
 
         try {
             // create a URL
-            URL url = new URL(NewBookingsActivity.URL_bookingInfo + "?breed="+activity.getBreed());
+            URL url = new URL(NewBookingsActivity.URL_bookingInfo + "?breed="+activity.getBreed() + "&dog=" + activity.getWantDog() + "&cat=" + activity.getWantCat() + "&other="+activity.getWantOther() +
+                    "&all=" +activity.getWantAll());
             // create an input stream for the URL
             InputStream is = url.openStream();
             // read from that input stream

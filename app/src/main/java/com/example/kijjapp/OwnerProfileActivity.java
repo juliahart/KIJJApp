@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Arrays;
+
 public class OwnerProfileActivity extends AppCompatActivity {
 
     private String email;
@@ -20,6 +22,15 @@ public class OwnerProfileActivity extends AppCompatActivity {
     }
 
     public void showProfile(){
+        TextView nameTV = (TextView) findViewById(R.id.name);
+        String name = "Name: " ;
+        nameTV.setText(name);
+        TextView addyTV = (TextView) findViewById(R.id.address);
+        String addy = "Address: ";
+        addyTV.setText(addy);
+        TextView cityStateZipTV = (TextView) findViewById(R.id.cityStateZip);
+        String cityStateZip = " ";
+        cityStateZipTV.setText(cityStateZip);
     }
 
 
@@ -27,7 +38,8 @@ public class OwnerProfileActivity extends AppCompatActivity {
     /**
      * method to go back to previous view
      */
-    public void goBack(View view) {
+    public void goBack(View view)
+    {
         finish();
     }
 }

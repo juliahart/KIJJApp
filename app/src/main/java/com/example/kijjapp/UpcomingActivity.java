@@ -3,6 +3,7 @@ package com.example.kijjapp;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,8 +20,8 @@ import java.util.ArrayList;
 public class UpcomingActivity extends AppCompatActivity {
    // public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
     public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
-    public static String ownerInfo;
 
+    String [] owner;
     //  private ArrayAdapter<String> listAdapter ;
     int length;
     //String ownerInfo;
@@ -102,9 +103,9 @@ public class UpcomingActivity extends AppCompatActivity {
                 //doesnt work for kijj forgot to change php there
                 //exception json: Only the original thread that created a view hierarchy can touch its views.
 
+
             }
-
-
+           owner = new String[bookingsList.size()];
             final String [] test = new String[bookingsList.size()];
             for (int j = 0; j < bookingsList.size(); j++)
             {
@@ -112,7 +113,6 @@ public class UpcomingActivity extends AppCompatActivity {
                 startDate = bookingsList.get(j).getStartDate();
                 endDate = bookingsList.get(j).getStartDate();
                 name = bookingsList.get(j).getPetOwner().getPetName();
-
                 type = bookingsList.get(j).getPetOwner().getType();
                 //error here?
                 //String list
@@ -120,6 +120,7 @@ public class UpcomingActivity extends AppCompatActivity {
                 test[j] =  "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate;
                 Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate+ "test");
                 //error here
+                owner[j] = name;
             }
             runOnUiThread(new Runnable() {
                 @Override
@@ -153,6 +154,7 @@ public class UpcomingActivity extends AppCompatActivity {
     }
 
     public void finished(View view) {
+
     }
 }
 

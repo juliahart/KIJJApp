@@ -1,8 +1,12 @@
 package com.example.kijjapp;
 
+import android.app.AutomaticZenRule;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,11 +18,23 @@ import org.json.JSONObject;
 public class ProfileActivity extends AppCompatActivity {
     private String email;
 
+    Button b;
+    EditText editText;
+    EditText editAdd;
+    EditText editZip;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         showProfile();
+        editText = (EditText) findViewById(R.id.name);
+        editAdd = (EditText) findViewById(R.id.address);
+        editZip = (EditText) findViewById(R.id.cityStateZip);
+        b = (Button)findViewById(R.id.saveProfile);
+
+        editText.setEnabled(false);
+        editAdd.setEnabled(false);
+        editZip.setEnabled(false);
 
     }
 
@@ -47,9 +63,22 @@ public class ProfileActivity extends AppCompatActivity {
      */
     public void editProfile(View view)
     {
-        /*
-         * TO DO!!
-         */
+        editText.setEnabled(true);
+        editText.requestFocus();
+        editAdd.setEnabled(true);
+        editAdd.requestFocus();
+        editZip.setEnabled(true);
+        editZip.requestFocus();
+
+        b.setVisibility(View.VISIBLE);
+
+    }
+    public void save(View view)
+    {
+        editText.setEnabled(false);
+        editAdd.setEnabled(false);
+        editZip.setEnabled(false);
+        b.setVisibility(View.INVISIBLE);
 
     }
 

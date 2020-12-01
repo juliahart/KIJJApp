@@ -11,7 +11,7 @@ public class PetSitter {
     private int zip;
     private double lat;
     private double longi;
-    private int points;
+    public int points;
 
     public PetSitter(String email, String first, String last, String address, String city, String state, int zip, double lat, double longi, int points) {
         this.email = email;

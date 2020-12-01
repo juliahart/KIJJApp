@@ -59,6 +59,7 @@
     <string name="state">State</string>
     <string name="zip">Zip Code</string>
     <string name="owner_s_profile">Owner\'s Profile</string>
+    <string name="Save">save</string>
 
 
 </resources>

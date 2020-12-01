@@ -24,7 +24,7 @@ public class PointsActivity extends AppCompatActivity {
     }
 
     public void updatePointsView(){
-        Log.w("MA", "points = "+MainActivity.sitter.getPoints());
+        Log.w("MA", "points = "+ MainActivity.sitter.getPoints());
         TextView pointsTV = (TextView) findViewById( R.id.yourPoints );
         pointsTV.setText( "You have: "+ String.valueOf(MainActivity.sitter.getPoints())  + " points" );
         String left = String.valueOf( 25 - MainActivity.sitter.getPoints());

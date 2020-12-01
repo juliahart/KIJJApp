@@ -1,6 +1,7 @@
 package com.example.kijjapp;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ public class UpcomingActivity extends AppCompatActivity {
     public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
 
   //  private ArrayAdapter<String> listAdapter ;
-
+int length;
 
     private ArrayList<Booking> bookingsList = new ArrayList<>();
     @Override
@@ -69,7 +70,7 @@ public class UpcomingActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     public void updateBookingsArray(String s) {
 
-        ListView listView;
+        final ListView listView;
         listView = (ListView) findViewById(R.id.listView);
 
 
@@ -114,7 +115,8 @@ public class UpcomingActivity extends AppCompatActivity {
 
             }
 
-            String [] test = new String[bookingsList.size()];
+
+            final String [] test = new String[bookingsList.size()];
             for (int j = 0; j < bookingsList.size(); j++)
             {
                 Log.w("MA", "booking id: "+ bookingsList.get(j).getId());
@@ -129,8 +131,16 @@ public class UpcomingActivity extends AppCompatActivity {
                 Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate+ "test");
                 //error here
             }
-            CustomListAdapter whatever = new CustomListAdapter(this, test);
-            listView.setAdapter(whatever);
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    CustomListAdapter whatever = new CustomListAdapter((Activity) listView.getContext(), test);
+                    listView.setAdapter(whatever);
+
+                }
+            });
+
+
         } catch (
             JSONException jsone) {
             Log.w("MA", "JSON exception: " + jsone.getMessage());

@@ -1,5 +1,6 @@
 package com.example.kijjapp;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +27,7 @@ public class CustomListAdapter extends ArrayAdapter {
 
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater=context.getLayoutInflater();
-        View rowView=inflater.inflate(R.layout.listview, null,true);
+        @SuppressLint({"InflateParams", "ViewHolder"}) View rowView=inflater.inflate(R.layout.listview, null,true);
 
         //this code gets references to objects in the listview file
         TextView nameTextField = (TextView) rowView.findViewById(R.id.name);

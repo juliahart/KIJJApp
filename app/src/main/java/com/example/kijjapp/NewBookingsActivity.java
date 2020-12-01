@@ -125,6 +125,16 @@ public class NewBookingsActivity extends AppCompatActivity {
         }
         Log.w("MA", "Breed=" + breed);
 
+        int dist = distanceBar.getProgress();
+        double distance = dist/69;
+        maxLong = MainActivity.sitter.getLongi() + distance;
+        Log.w("MA", "max Long" + maxLong);
+        minLong = MainActivity.sitter.getLongi() - distance;
+        Log.w("MA", "min Long" + minLong);
+        maxLat = MainActivity.sitter.getLat() + distance;
+        Log.w("MA", "max Lat" + maxLat);
+        minLat = MainActivity.sitter.getLat() - distance;
+        Log.w("MA", "min Lat" + minLat);
 
         ThreadTaskValidBookings taskAllBookings = new ThreadTaskValidBookings(this);
         taskAllBookings.start();

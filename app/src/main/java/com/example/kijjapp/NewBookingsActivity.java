@@ -40,7 +40,6 @@ public class NewBookingsActivity extends AppCompatActivity {
     private ArrayList<Booking> validBookingsList = new ArrayList<>();
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +49,12 @@ public class NewBookingsActivity extends AppCompatActivity {
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {}
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
@@ -97,25 +98,19 @@ public class NewBookingsActivity extends AppCompatActivity {
         Log.w("MA","rating=" + rating);
 
         //handle type input
-        if(dogBox.isChecked())
-        {
+        if (dogBox.isChecked()) {
             wantDog = "Dog";
-        }
-        else{
+        } else {
             wantDog = "noDog";
         }
-        if(catBox.isChecked())
-        {
+        if (catBox.isChecked()) {
             wantCat = "Cat";
-        }
-        else{
+        } else {
             wantCat = "NoCat";
         }
-        if(allBox.isChecked())
-        {
+        if (allBox.isChecked()) {
             wantAll = "All";
-        }
-        else{
+        } else {
             wantAll = "NotAll";
         }
         wantOther = OtherEt.getText().toString();
@@ -123,14 +118,12 @@ public class NewBookingsActivity extends AppCompatActivity {
 
 
         //handle breed input
-        if(breedET.getText().toString().trim().length() > 0)
-        {
+        if (breedET.getText().toString().trim().length() > 0) {
             breed = breedET.getText().toString();
-        }
-        else{
+        } else {
             breed = "blank";
         }
-        Log.w("MA", "Breed="+breed);
+        Log.w("MA", "Breed=" + breed);
 
 
         ThreadTaskValidBookings taskAllBookings = new ThreadTaskValidBookings(this);
@@ -172,11 +165,7 @@ public class NewBookingsActivity extends AppCompatActivity {
                         bookingi.getString("start"), bookingi.getString("end"), bookingi.getString(("status")));
 
 
-
-
                 validBookingsList.add(tempBooking);
-
-
 
 
                 // This only outputs 1 booking ( I think that it might not retrieve all the bookings
@@ -194,10 +183,9 @@ public class NewBookingsActivity extends AppCompatActivity {
 
         Log.w("MA", "now Have: " + validBookingsList.size());
 
-        final String [] test = new String[validBookingsList.size()];
-        for (int j = 0; j < validBookingsList.size(); j++)
-        {
-            Log.w("MA", "booking id: "+ validBookingsList.get(j).getId());
+        final String[] test = new String[validBookingsList.size()];
+        for (int j = 0; j < validBookingsList.size(); j++) {
+            Log.w("MA", "booking id: " + validBookingsList.get(j).getId());
             startDate = validBookingsList.get(j).getStartDate();
             endDate = validBookingsList.get(j).getStartDate();
             name = validBookingsList.get(j).getPetOwner().getPetName();
@@ -206,16 +194,16 @@ public class NewBookingsActivity extends AppCompatActivity {
             //error here?
             //String list
             //test = new String[]{String.valueOf(bookingsList.size()), "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate, "test"};
-            test[j] =  "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nStatus: " + stat;
-            Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate+ "\nStatus: " + stat);
+            test[j] = "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nStatus: " + stat;
+            Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nStatus: " + stat);
             //error here
         }
 
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-             SearchCustomAdapter whatever = new SearchCustomAdapter((Activity) seatchListView.getContext(), test);
-             seatchListView.setAdapter(whatever);
+                SearchCustomAdapter whatever = new SearchCustomAdapter((Activity) seatchListView.getContext(), test);
+                seatchListView.setAdapter(whatever);
             }
         });
         //CustomListAdapter whatever = new CustomListAdapter(this, test);
@@ -223,7 +211,6 @@ public class NewBookingsActivity extends AppCompatActivity {
 
 
     }
-
 
 
     public String getBreed() {
@@ -305,5 +292,11 @@ public class NewBookingsActivity extends AppCompatActivity {
     public void setRating(double rating) {
         this.rating = rating;
     }
+
+    public void viewOwner(View view) {
+        Intent intent = new Intent( this, OwnerProfileActivity.class );
+        startActivity( intent );
+    }
+
 }
 

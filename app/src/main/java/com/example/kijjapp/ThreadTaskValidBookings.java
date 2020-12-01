@@ -26,7 +26,7 @@ public class ThreadTaskValidBookings extends Thread{
         try {
             // create a URL
             URL url = new URL(NewBookingsActivity.URL_bookingInfo + "?breed="+activity.getBreed() + "&dog=" + activity.getWantDog() + "&cat=" + activity.getWantCat() + "&other="+activity.getWantOther() +
-                    "&all=" +activity.getWantAll() + "&rating="+ activity.getRating() );
+                    "&all=" +activity.getWantAll() + "&rating="+ activity.getRating() + "&minLat=" + activity.getMinLat() + "&maxLat=" + activity.getMaxLat() + "&minLong=" + activity.getMinLong() + "&maxLong=" + activity.getMaxLong());
             // create an input stream for the URL
             InputStream is = url.openStream();
             // read from that input stream

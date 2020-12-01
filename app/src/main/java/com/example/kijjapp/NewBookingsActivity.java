@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -28,6 +29,11 @@ public class NewBookingsActivity extends AppCompatActivity {
     private String wantCat;
     private String wantOther;
     private String wantAll;
+    private double maxLong;
+    private double minLong;
+    private double maxLat;
+    private double minLat;
+    private double rating;
 
     //public static final String URL_bookingInfo = "http://kijj.cs.loyola.edu/model/getValidBookings.php";
     public static final String URL_bookingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/getValidBookings.php";
@@ -80,8 +86,15 @@ public class NewBookingsActivity extends AppCompatActivity {
         CheckBox catBox = (CheckBox) findViewById(R.id.checkBox2);
         EditText OtherEt = (EditText) findViewById(R.id.checkBox3);
         CheckBox allBox = (CheckBox) findViewById(R.id.checkBoxAll);
-
         EditText breedET = (EditText) findViewById(R.id.checkBox4);
+        RatingBar ratingBar = (RatingBar) findViewById(R.id.rating);
+        SeekBar distanceBar = (SeekBar) findViewById(R.id.distance_bar);
+
+        float[] r = new float[]{ ratingBar.getRating() };
+
+        //handle rating
+        rating = r[0];
+        Log.w("MA","rating=" + rating);
 
         //handle type input
         if(dogBox.isChecked())
@@ -205,6 +218,8 @@ public class NewBookingsActivity extends AppCompatActivity {
              seatchListView.setAdapter(whatever);
             }
         });
+        //CustomListAdapter whatever = new CustomListAdapter(this, test);
+        //seatchListView.setAdapter(whatever);
 
 
     }
@@ -251,8 +266,44 @@ public class NewBookingsActivity extends AppCompatActivity {
         this.wantAll = wantAll;
     }
 
-    public String getRating() {
-        return getRating();
+    public double getMaxLong() {
+        return maxLong;
+    }
+
+    public void setMaxLong(double maxLong) {
+        this.maxLong = maxLong;
+    }
+
+    public double getMinLong() {
+        return minLong;
+    }
+
+    public void setMinLong(double minLong) {
+        this.minLong = minLong;
+    }
+
+    public double getMaxLat() {
+        return maxLat;
+    }
+
+    public void setMaxLat(double maxLat) {
+        this.maxLat = maxLat;
+    }
+
+    public double getMinLat() {
+        return minLat;
+    }
+
+    public void setMinLat(double minLat) {
+        this.minLat = minLat;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 }
 

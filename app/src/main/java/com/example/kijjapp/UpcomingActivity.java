@@ -166,5 +166,7 @@ public class UpcomingActivity extends AppCompatActivity {
         MainActivity.sitter.addPoints(length);
     }
 
+    public void goToApply(View view) {
+    }
 }
 

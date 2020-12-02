@@ -29,7 +29,7 @@
     <string name="redeem"> Redeem </string>
 
 
-    <string name="apply"> Apply </string>
+    <string name="applyTo"> Apply </string>
     <string name="ownerProfileInfo"> Owner Profile Info </string>
     <string name="specificBookingInfo"> Booking Info </string>
 
@@ -60,6 +60,7 @@
     <string name="zip">Zip Code</string>
     <string name="owner_s_profile">Owner\'s Profile</string>
     <string name="Save">save</string>
+    <string name="apply">Apply</string>
 
 
 </resources>

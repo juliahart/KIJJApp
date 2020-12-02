@@ -144,8 +144,9 @@ public class NewBookingsActivity extends AppCompatActivity {
     }
 
     public void updateAllBookings(String s) {
-        final ListView seatchListView;
-        seatchListView = (ListView) findViewById(R.id.SearchListView);
+        final ListView searchListView;
+        searchListView = (ListView) findViewById(R.id.SearchListView);
+        validBookingsList.clear();
 
 
         String endDate = null;
@@ -214,12 +215,12 @@ public class NewBookingsActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                SearchCustomAdapter whatever = new SearchCustomAdapter((Activity) seatchListView.getContext(), test);
-                seatchListView.setAdapter(whatever);
+                SearchCustomAdapter whatever = new SearchCustomAdapter((Activity) searchListView.getContext(), test);
+                searchListView.setAdapter(whatever);
             }
         });
         //CustomListAdapter whatever = new CustomListAdapter(this, test);
-        //seatchListView.setAdapter(whatever);
+        //searchListView.setAdapter(whatever);
 
 
     }

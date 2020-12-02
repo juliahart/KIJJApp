@@ -91,12 +91,14 @@ public class ProfileActivity extends AppCompatActivity {
         String[] names = name.split(" ");
         boolean validInput = true;
 
-        if(names.length == 3 && names[0].equals("Name:"))
+        if(names.length == 3)
         {
             MainActivity.sitter.setFirst(names[1]);
             MainActivity.sitter.setLast(names[2]);
         }
         else{
+            Log.w("MA", "first: " + names[1] + " last: "+ names[2]);
+            Log.w("MA", "loc len: "+ names.length);
             editText.setText("Invalid Input will not be saved: Format = Name: [first] [last]");
             validInput = false;
         }
@@ -111,20 +113,23 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         //handle location change
-        String[] location = editZip.getText().toString().split(" ");
+        String[] location = editZip.getText().toString().split(",");
         if(location.length == 3) { // && location[1].length() == 3 && location[0].charAt(location[0].length()) == ',' && location[1].charAt(location[1].length()) == ',' ){
              try{
-                 MainActivity.sitter.setZip(Integer.parseInt(location[2]));
-                 Log.w("MA", "zip" + location[2].substring(1));
+                 MainActivity.sitter.setZip(Integer.parseInt(location[2].replaceAll("\\s", "")));
+                 Log.w("MA", "zip: " + location[2].replaceAll("\\s", ""));
              }catch (NumberFormatException nfe) {
-                 Log.w("MA", "zip" + location[2].substring(1));
-                 editZip.setText("Invalid Input will not be saved: Format = [city], [state (2 letters)], [zip code]");
+                 Log.w("MA", "zip: " + location[2].replaceAll("\\s", ""));
+                 editZip.setText("Invalid Input will not be saved: Format = [city], [state (2 letters)], [zip code(int)]");
                  validInput = false;
              }
-             MainActivity.sitter.setState(location[1].substring(0,location[1].length() -1 ));
-             MainActivity.sitter.setCity(location[0].substring(0,location[0].length() -1 ));
+             MainActivity.sitter.setState(location[1].replaceAll("\\s", ""));
+             MainActivity.sitter.setCity(location[0].replaceAll("\\s", ""));
         }
         else {
+            Log.w("MA", "loc len: "+ location.length);
+            Log.w("MA", "loc len: "+ location.length);
+            validInput = false;
             editZip.setText("Invalid Input will not be saved: Format = [city], [state (2 letters)], [zip code]");
         }
         b.setVisibility(View.INVISIBLE);

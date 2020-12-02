@@ -25,7 +25,7 @@ public class UpcomingActivity extends AppCompatActivity {
     String[] ed;
     int length;
     private ArrayList<Booking> bookingsList = new ArrayList<>();
-
+    String [] ownerInfo;
 
 
     @Override
@@ -106,7 +106,7 @@ public class UpcomingActivity extends AppCompatActivity {
 
             }
             final String[] test = new String[bookingsList.size()];
-          // ownerInfo = new String[bookingsList.size()];
+           ownerInfo = new String[bookingsList.size()];
             for (int j = 0; j < bookingsList.size(); j++) {
                 Log.w("MA", "booking id: " + bookingsList.get(j).getId());
                 startDate = bookingsList.get(j).getStartDate();
@@ -127,7 +127,7 @@ public class UpcomingActivity extends AppCompatActivity {
                 ed = startDate.split("-");
                 length = Integer.parseInt(sd[1]) - Integer.parseInt(this.ed[1]);
 
-             //   ownerInfo[j] = name;
+               ownerInfo[j] = name;
 
             }
 
@@ -158,11 +158,13 @@ public class UpcomingActivity extends AppCompatActivity {
 
     public void goToOwnerProfile(View view) {
         Intent intent = new Intent(this, OwnerProfileActivity.class);
+        intent.putExtra("string", ownerInfo);
         startActivity(intent);
     }
 
     //This is not working yet
     public void finished(View view) {
+
         MainActivity.sitter.addPoints(length);
     }
 

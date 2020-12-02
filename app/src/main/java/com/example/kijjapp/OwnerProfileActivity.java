@@ -1,5 +1,6 @@
 package com.example.kijjapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -24,9 +25,13 @@ public class OwnerProfileActivity extends AppCompatActivity {
 
 
     public void showProfile(){
-        TextView nameTV = (TextView) findViewById(R.id.name);
-      //  String name = "Name: " + Arrays.toString(activity.ownerInfo);
-      //  nameTV.setText(name);
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if(bundle != null){
+            TextView nameTV = (TextView) findViewById(R.id.name);
+            String name = "Name: " + bundle.getString("ownerInfo");
+            nameTV.setText(name);
+        }
     }
 
 

@@ -7,6 +7,7 @@ public class Booking {
     private  String endDate;
     private  String startDate;
     private String status;
+    private String[] ed;
 
     public Booking(){}
 
@@ -70,6 +71,8 @@ public class Booking {
 
     public  int startToEnd()
     {
-        return Integer.parseInt(this.startDate) -Integer.parseInt(this.endDate) ;
+        String[] sd = startDate.split("-");
+         ed = startDate.split("-");
+        return Integer.parseInt(sd[3]) -Integer.parseInt(this.ed[3]) ;
     }
 }

@@ -21,7 +21,9 @@ public class UpcomingActivity extends AppCompatActivity {
    // public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
     public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
 
-    String [] owner;
+    String[] owner;
+    String[] sd;
+    String[] ed;
     //  private ArrayAdapter<String> listAdapter ;
     int length;
     //String ownerInfo;
@@ -111,7 +113,7 @@ public class UpcomingActivity extends AppCompatActivity {
             {
                 Log.w("MA", "booking id: "+ bookingsList.get(j).getId());
                 startDate = bookingsList.get(j).getStartDate();
-                endDate = bookingsList.get(j).getStartDate();
+                endDate = bookingsList.get(j).getEndDate();
                 name = bookingsList.get(j).getPetOwner().getPetName();
                 type = bookingsList.get(j).getPetOwner().getType();
                 //error here?
@@ -120,7 +122,13 @@ public class UpcomingActivity extends AppCompatActivity {
                 test[j] =  "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate;
                 Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate+ "test");
                 //error here
+
+                //this is not working yet!!
+                sd = startDate.split("-");
+                ed = startDate.split("-");
+                length = Integer.parseInt(sd[2]) - Integer.parseInt(this.ed[2]) ;
             }
+
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -152,8 +160,10 @@ public class UpcomingActivity extends AppCompatActivity {
         startActivity( intent );
     }
 
+
+    //This is not working yet
     public void finished(View view) {
-       // MainActivity.sitter.addPoints();
+        MainActivity.sitter.addPoints(length);
     }
 }
 

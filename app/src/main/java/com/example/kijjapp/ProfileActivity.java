@@ -17,6 +17,8 @@ import org.json.JSONObject;
 
 public class ProfileActivity extends AppCompatActivity {
     private String email;
+    //public static final String URL_updateSitter = "http://kijj.cs.loyola.edu/model/sitterChangeProfile.php";
+    public static final String URL_updateSitter = "http://klmatrangola.cs.loyola.edu/kijjTesting/sitterChangeProfile.php";
 
     Button b;
     EditText editText;
@@ -84,9 +86,55 @@ public class ProfileActivity extends AppCompatActivity {
 
        // MainActivity.sitter.setCity(editZip.toString());
         editZip.setEnabled(false);
+        //handle name change
+        String name = editText.getText().toString();
+        String[] names = name.split(" ");
+        boolean validInput = true;
+
+        if(names.length == 3 && names[0].equals("Name:"))
+        {
+            MainActivity.sitter.setFirst(names[1]);
+            MainActivity.sitter.setLast(names[2]);
+        }
+        else{
+            editText.setText("Invalid Input will not be saved: Format = Name: [first] [last]");
+            validInput = false;
+        }
+        //handle address change
+        String[] address = editAdd.getText().toString().split(":");
+        if(address.length == 2 && address[0].equals("Address")){
+            MainActivity.sitter.setAddress(address[1].substring(1));
+        }
+        else{
+            editAdd.setText("Invalid Input will not be saved: Format = Address: [street address]");
+            validInput = false;
+        }
+
+        //handle location change
+        String[] location = editZip.getText().toString().split(" ");
+        if(location.length == 3) { // && location[1].length() == 3 && location[0].charAt(location[0].length()) == ',' && location[1].charAt(location[1].length()) == ',' ){
+             try{
+                 MainActivity.sitter.setZip(Integer.parseInt(location[2]));
+                 Log.w("MA", "zip" + location[2].substring(1));
+             }catch (NumberFormatException nfe) {
+                 Log.w("MA", "zip" + location[2].substring(1));
+                 editZip.setText("Invalid Input will not be saved: Format = [city], [state (2 letters)], [zip code]");
+                 validInput = false;
+             }
+             MainActivity.sitter.setState(location[1].substring(0,location[1].length() -1 ));
+             MainActivity.sitter.setCity(location[0].substring(0,location[0].length() -1 ));
+        }
+        else {
+            editZip.setText("Invalid Input will not be saved: Format = [city], [state (2 letters)], [zip code]");
+        }
         b.setVisibility(View.INVISIBLE);
 
-    }
+        if(validInput == true){
+            //update info in database
+            ThreadTaskUpdateSitter updateSitter = new ThreadTaskUpdateSitter(this);
+            updateSitter.start();
+        }
 
+    }
 
 }

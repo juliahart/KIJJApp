@@ -126,7 +126,9 @@ public class NewBookingsActivity extends AppCompatActivity {
         Log.w("MA", "Breed=" + breed);
 
         int dist = distanceBar.getProgress();
-        double distance = dist/69;
+        double distance = dist;
+        Log.w("MA", "Dist" + distance);
+
         maxLong = MainActivity.sitter.getLongi() + distance;
         Log.w("MA", "max Long" + maxLong);
         minLong = MainActivity.sitter.getLongi() - distance;

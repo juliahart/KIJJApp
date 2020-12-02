@@ -311,5 +311,7 @@ public class NewBookingsActivity extends AppCompatActivity {
         startActivity( intent );
     }
 
+    public void goToApply(View view) {
+    }
 }
 

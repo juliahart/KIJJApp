@@ -4,7 +4,7 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".UpcomingActivity">
+tools:context=".NewBookingsActivity">
 
 <TextView
     android:id="@+id/newBooking"
@@ -25,7 +25,7 @@ tools:context=".UpcomingActivity">
     android:layout_marginTop="3dp"
     android:textColor="@color/colorAccent"
     android:layout_marginRight="3dp"
-    android:onClick="goToOwnerProfile"
+    android:onClick="viewOwner"
     />
 
     <Button

@@ -2,6 +2,7 @@ package com.example.kijjapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         String email = emailET.getText().toString();
         MainActivity.email = email;
         EditText passET= (EditText) findViewById( R.id.password);
+        passET.setTransformationMethod(PasswordTransformationMethod.getInstance());
         pass = passET.getText().toString();
         //check password later
         ThreadTaskCheckLogin taskCheck = new ThreadTaskCheckLogin(this, view);

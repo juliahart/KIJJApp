@@ -9,6 +9,7 @@ import java.net.URLConnection;
 import java.util.Scanner;
 public class ThreadTaskCheckLogin extends Thread {
         private LoginActivity activity;
+        private UpcomingActivity act;
         private View view;
 
         public ThreadTaskCheckLogin(LoginActivity fromActivity, View view) {

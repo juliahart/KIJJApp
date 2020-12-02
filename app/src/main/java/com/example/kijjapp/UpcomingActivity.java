@@ -3,10 +3,10 @@ package com.example.kijjapp;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,16 +18,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class UpcomingActivity extends AppCompatActivity {
-   // public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
+    // public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
     public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
 
-    String[] owner;
     String[] sd;
     String[] ed;
-    //  private ArrayAdapter<String> listAdapter ;
     int length;
-    //String ownerInfo;
     private ArrayList<Booking> bookingsList = new ArrayList<>();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +36,7 @@ public class UpcomingActivity extends AppCompatActivity {
         taskUpcomingBookings.start();
 
         //String [] test;
-       // test = new String[]{"mary", "john"};
+        // test = new String[]{"mary", "john"};
         //CustomListAdapter whatever = new CustomListAdapter(this, test);
 
     }
@@ -45,18 +45,18 @@ public class UpcomingActivity extends AppCompatActivity {
     /**
      * Method to go to profile view
      */
-    public void goToProfile(View view){
-        Intent intent = new Intent( this, ProfileActivity.class );
+    public void goToProfile(View view) {
+        Intent intent = new Intent(this, ProfileActivity.class);
         // go to home screen
-        startActivity( intent );
+        startActivity(intent);
     }
 
 
     /**
      * Method to go back to previous view
      */
-    public void goBack(View view){
-            finish();
+    public void goBack(View view) {
+        finish();
     }
 
     @SuppressLint("SetTextI18n")
@@ -95,8 +95,6 @@ public class UpcomingActivity extends AppCompatActivity {
                         bookingi.getString("start"), bookingi.getString("end"), bookingi.getString("status"));
 
 
-
-
                 bookingsList.add(tempBooking);
 
 
@@ -107,26 +105,30 @@ public class UpcomingActivity extends AppCompatActivity {
 
 
             }
-           owner = new String[bookingsList.size()];
-            final String [] test = new String[bookingsList.size()];
-            for (int j = 0; j < bookingsList.size(); j++)
-            {
-                Log.w("MA", "booking id: "+ bookingsList.get(j).getId());
+            final String[] test = new String[bookingsList.size()];
+          // ownerInfo = new String[bookingsList.size()];
+            for (int j = 0; j < bookingsList.size(); j++) {
+                Log.w("MA", "booking id: " + bookingsList.get(j).getId());
                 startDate = bookingsList.get(j).getStartDate();
                 endDate = bookingsList.get(j).getEndDate();
                 name = bookingsList.get(j).getPetOwner().getPetName();
                 type = bookingsList.get(j).getPetOwner().getType();
                 //error here?
                 //String list
+
                 //test = new String[]{String.valueOf(bookingsList.size()), "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate, "test"};
-                test[j] =  "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate;
-                Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate+ "test");
+                test[j] = "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate;
+                Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "test");
                 //error here
+
 
                 //this is not working yet!!
                 sd = startDate.split("-");
                 ed = startDate.split("-");
-                length = Integer.parseInt(sd[2]) - Integer.parseInt(this.ed[2]) ;
+                length = Integer.parseInt(sd[1]) - Integer.parseInt(this.ed[1]);
+
+             //   ownerInfo[j] = name;
+
             }
 
             runOnUiThread(new Runnable() {
@@ -139,14 +141,13 @@ public class UpcomingActivity extends AppCompatActivity {
 
 
         } catch (
-            JSONException jsone) {
+                JSONException jsone) {
             Log.w("MA", "JSON exception: " + jsone.getMessage());
         }
     }
 
 
-    public String getBookingsList()
-    {
+    public String getBookingsList() {
         return bookingsList.toString();
     }
 
@@ -155,15 +156,15 @@ public class UpcomingActivity extends AppCompatActivity {
         this.bookingsList = bookingsList;
     }
 
-    public void viewOwner(View view) {
-        Intent intent = new Intent( this, OwnerProfileActivity.class );
-        startActivity( intent );
+    public void goToOwnerProfile(View view) {
+        Intent intent = new Intent(this, OwnerProfileActivity.class);
+        startActivity(intent);
     }
-
 
     //This is not working yet
     public void finished(View view) {
         MainActivity.sitter.addPoints(length);
     }
+
 }
 

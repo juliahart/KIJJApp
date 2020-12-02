@@ -77,7 +77,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
     public void save(View view)
     {
-       // MainActivity.sitter.setFirst(editText.toString());
+        //MainActivity.sitter.setFirst(editText.toString());
         //MainActivity.sitter.setLast(editText.toString());
         editText.setEnabled(false);
 

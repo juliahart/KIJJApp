@@ -10,6 +10,7 @@ import java.util.Arrays;
 
 public class OwnerProfileActivity extends AppCompatActivity {
 
+    UpcomingActivity activity;
     private String email;
 
     @Override
@@ -18,19 +19,14 @@ public class OwnerProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ownerprofile);
         showProfile();
 
-
     }
+
+
 
     public void showProfile(){
         TextView nameTV = (TextView) findViewById(R.id.name);
-        String name = "Name: " ;
-        nameTV.setText(name);
-        TextView addyTV = (TextView) findViewById(R.id.address);
-        String addy = "Address: ";
-        addyTV.setText(addy);
-        TextView cityStateZipTV = (TextView) findViewById(R.id.cityStateZip);
-        String cityStateZip = " ";
-        cityStateZipTV.setText(cityStateZip);
+      //  String name = "Name: " + Arrays.toString(activity.ownerInfo);
+      //  nameTV.setText(name);
     }
 
 

@@ -106,7 +106,6 @@ public class LoginActivity extends AppCompatActivity {
         if(s.equals("true") && !MainActivity.email.isEmpty())
         {
             //update sitter info
-
             ThreadTaskJsonUrl sitterInfo = new ThreadTaskJsonUrl(this,view);
             sitterInfo.start();
             //go to homepage

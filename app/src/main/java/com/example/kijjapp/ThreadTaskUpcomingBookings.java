@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class ThreadTaskUpcomingBookings extends Thread{
     private UpcomingActivity activity;
     ListView listView;
+    private View view;
 
     public ThreadTaskUpcomingBookings( UpcomingActivity fromActivity) {
         activity = fromActivity;

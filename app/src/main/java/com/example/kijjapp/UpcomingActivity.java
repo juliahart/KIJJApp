@@ -16,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UpcomingActivity extends AppCompatActivity {
     // public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
@@ -25,7 +26,7 @@ public class UpcomingActivity extends AppCompatActivity {
     String[] ed;
     int length;
     private ArrayList<Booking> bookingsList = new ArrayList<>();
-    String [] ownerInfo;
+    String[] ownerInfo;
 
 
     @Override
@@ -105,7 +106,7 @@ public class UpcomingActivity extends AppCompatActivity {
 
 
             }
-            final String[] test = new String[bookingsList.size()];
+           final String[] test = new String[bookingsList.size()];
            ownerInfo = new String[bookingsList.size()];
             for (int j = 0; j < bookingsList.size(); j++) {
                 Log.w("MA", "booking id: " + bookingsList.get(j).getId());
@@ -127,7 +128,7 @@ public class UpcomingActivity extends AppCompatActivity {
                 ed = startDate.split("-");
                 length = Integer.parseInt(sd[1]) - Integer.parseInt(this.ed[1]);
 
-               ownerInfo[j] = name;
+                ownerInfo[j] = bookingsList.get(j).getPetOwner().getFirst() + " " +bookingsList.get(j).getPetOwner().getLast();
 
             }
 
@@ -157,14 +158,13 @@ public class UpcomingActivity extends AppCompatActivity {
     }
 
     public void goToOwnerProfile(View view) {
-        Intent intent = new Intent(this, OwnerProfileActivity.class);
-        intent.putExtra("string", ownerInfo);
+        Intent intent = new Intent(UpcomingActivity.this,OwnerProfileActivity.class);
+        intent.putExtra("key", Arrays.toString(ownerInfo));
         startActivity(intent);
     }
 
     //This is not working yet
     public void finished(View view) {
-
         MainActivity.sitter.addPoints(length);
     }
 

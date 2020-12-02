@@ -22,17 +22,13 @@ public class OwnerProfileActivity extends AppCompatActivity {
 
     }
 
-
-
     public void showProfile(){
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        if(bundle != null){
-            TextView nameTV = (TextView) findViewById(R.id.name);
-            String name = "Name: " + bundle.getString("ownerInfo");
-            nameTV.setText(name);
-        }
+        String my_string = getIntent().getStringExtra("key");
+        TextView nameTV = (TextView) findViewById(R.id.name);
+        String name = "Name: " + my_string;
+        nameTV.setText(name);
     }
+
 
 
 

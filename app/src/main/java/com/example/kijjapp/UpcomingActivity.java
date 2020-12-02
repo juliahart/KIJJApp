@@ -120,7 +120,6 @@ public class UpcomingActivity extends AppCompatActivity {
                 test[j] =  "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate;
                 Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate+ "test");
                 //error here
-                owner[j] = name;
             }
             runOnUiThread(new Runnable() {
                 @Override
@@ -154,7 +153,7 @@ public class UpcomingActivity extends AppCompatActivity {
     }
 
     public void finished(View view) {
-
+       // MainActivity.sitter.addPoints();
     }
 }
 

@@ -75,8 +75,14 @@ public class ProfileActivity extends AppCompatActivity {
     }
     public void save(View view)
     {
+       // MainActivity.sitter.setFirst(editText.toString());
+        //MainActivity.sitter.setLast(editText.toString());
         editText.setEnabled(false);
+
+        //MainActivity.sitter.setAddress(editAdd.toString());
         editAdd.setEnabled(false);
+
+       // MainActivity.sitter.setCity(editZip.toString());
         editZip.setEnabled(false);
         b.setVisibility(View.INVISIBLE);
 

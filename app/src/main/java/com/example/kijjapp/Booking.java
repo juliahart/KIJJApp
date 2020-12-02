@@ -4,8 +4,8 @@ public class Booking {
     private int id;
     private PetSitter petSitter;
     private PetOwner petOwner;
-    private String endDate;
-    private String startDate;
+    private  String endDate;
+    private  String startDate;
     private String status;
 
     public Booking(){}
@@ -66,5 +66,10 @@ public class Booking {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public  int startToEnd()
+    {
+        return Integer.parseInt(this.startDate) -Integer.parseInt(this.endDate) ;
     }
 }

@@ -106,6 +106,13 @@ public class PetSitter {
         return points;
     }
 
+    public void addPoints()
+    {
+        Booking book =  new Booking();
+        int b = book.startToEnd();
+        points += b;
+    }
+
     public void setPoints(int points) {
         this.points = points;
     }

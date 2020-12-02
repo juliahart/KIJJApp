@@ -306,12 +306,5 @@ public class NewBookingsActivity extends AppCompatActivity {
         this.rating = rating;
     }
 
-    public void viewOwner(View view) {
-        Intent intent = new Intent( this, OwnerProfileActivity.class );
-        startActivity( intent );
-    }
-
-    public void goToApply(View view) {
-    }
 }
 

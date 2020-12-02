@@ -25,21 +25,7 @@ tools:context=".NewBookingsActivity">
     android:layout_marginTop="3dp"
     android:textColor="@color/colorAccent"
     android:layout_marginRight="3dp"
-    android:onClick="viewOwner"
+    android:onClick="goToProfile"
     />
 
-    <Button
-        android:id ="@+id/apply"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_alignRight="@+id/newBooking"
-        android:text="@string/applyTo"
-        android:background="@color/colorPrimary"
-        android:layout_marginBottom="3dp"
-        android:layout_marginTop="3dp"
-        android:textColor="@color/colorAccent"
-        android:layout_marginRight="3dp"
-        android:layout_below="@id/moreInfo"
-        android:onClick="goToApply"
-        />
 </RelativeLayout>

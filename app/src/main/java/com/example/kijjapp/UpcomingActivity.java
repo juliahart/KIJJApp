@@ -27,6 +27,8 @@ public class UpcomingActivity extends AppCompatActivity {
     int length;
     private ArrayList<Booking> bookingsList = new ArrayList<>();
     String[] ownerInfo;
+    String[] ownerAddress;
+    String[] ownerZCS;
 
 
     @Override
@@ -108,6 +110,8 @@ public class UpcomingActivity extends AppCompatActivity {
             }
            final String[] test = new String[bookingsList.size()];
            ownerInfo = new String[bookingsList.size()];
+            ownerAddress = new String[bookingsList.size()];
+            ownerZCS = new String[bookingsList.size()];
             for (int j = 0; j < bookingsList.size(); j++) {
                 Log.w("MA", "booking id: " + bookingsList.get(j).getId());
                 startDate = bookingsList.get(j).getStartDate();
@@ -128,8 +132,10 @@ public class UpcomingActivity extends AppCompatActivity {
                 ed = startDate.split("-");
                 length = Integer.parseInt(sd[1]) - Integer.parseInt(this.ed[1]);
 
-                ownerInfo[j] = bookingsList.get(j).getPetOwner().getFirst() + " " +bookingsList.get(j).getPetOwner().getLast();
-
+                ownerInfo[j] = bookingsList.get(j).getPetOwner().getFirst() + " " + bookingsList.get(j).getPetOwner().getLast();
+                ownerAddress[j] = bookingsList.get(j).getPetOwner().getAddress();
+                ownerZCS[j] = bookingsList.get(j).getPetOwner().getCity() + ", " + bookingsList.get(j).getPetOwner().getState() + ", "
+                        + bookingsList.get(j).getPetOwner().getZip();
             }
 
             runOnUiThread(new Runnable() {
@@ -160,6 +166,8 @@ public class UpcomingActivity extends AppCompatActivity {
     public void goToOwnerProfile(View view) {
         Intent intent = new Intent(UpcomingActivity.this,OwnerProfileActivity.class);
         intent.putExtra("key", Arrays.toString(ownerInfo));
+        intent.putExtra("key2", Arrays.toString(ownerAddress));
+        intent.putExtra("key3", Arrays.toString(ownerZCS));
         startActivity(intent);
     }
 

@@ -27,6 +27,16 @@ public class OwnerProfileActivity extends AppCompatActivity {
         TextView nameTV = (TextView) findViewById(R.id.name);
         String name = "Name: " + my_string;
         nameTV.setText(name);
+
+        String my_string2 = getIntent().getStringExtra("key2");
+        TextView addyTV = (TextView) findViewById(R.id.address);
+        String addy = "Address: "  + my_string2;
+        addyTV.setText(addy);
+
+        String my_string3 = getIntent().getStringExtra("key3");
+        TextView cityStateZipTV = (TextView) findViewById(R.id.cityStateZip);
+        String cityStateZip =  my_string3;
+        cityStateZipTV.setText(cityStateZip);
     }
 
 

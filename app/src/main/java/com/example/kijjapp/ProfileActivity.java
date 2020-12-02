@@ -44,9 +44,11 @@ public class ProfileActivity extends AppCompatActivity {
         TextView nameTV = (TextView) findViewById(R.id.name);
         String name = "Name: " + MainActivity.sitter.getFirst()+ " "+ MainActivity.sitter.getLast();
         nameTV.setText(name);
+
         TextView addyTV = (TextView) findViewById(R.id.address);
         String addy = "Address: " + MainActivity.sitter.getAddress();
         addyTV.setText(addy);
+
         TextView cityStateZipTV = (TextView) findViewById(R.id.cityStateZip);
         String cityStateZip = MainActivity.sitter.getCity() + ", " + MainActivity.sitter.getState() + ", " + Integer.valueOf(MainActivity.sitter.getZip());
         cityStateZipTV.setText(cityStateZip);

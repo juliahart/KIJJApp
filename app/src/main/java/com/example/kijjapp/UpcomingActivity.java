@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,6 +30,7 @@ public class UpcomingActivity extends AppCompatActivity {
     String[] ownerInfo;
     String[] ownerAddress;
     String[] ownerZCS;
+    private String ownerEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,10 +161,16 @@ public class UpcomingActivity extends AppCompatActivity {
     }
 
     public void goToOwnerProfile(View view) {
+        final ListView listView;
+        listView = (ListView) findViewById(R.id.listView);
+        //find out which one was clicked on (index)
+        //find info from that index in the booking list
+
         Intent intent = new Intent(UpcomingActivity.this,OwnerProfileActivity.class);
         intent.putExtra("key", Arrays.toString(ownerInfo));
         intent.putExtra("key2", Arrays.toString(ownerAddress));
         intent.putExtra("key3", Arrays.toString(ownerZCS));
+        intent.putExtra("owner", )
         startActivity(intent);
     }
 

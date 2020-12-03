@@ -30,18 +30,12 @@ public class UpcomingActivity extends AppCompatActivity {
     String[] ownerAddress;
     String[] ownerZCS;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upcoming);
         ThreadTaskUpcomingBookings taskUpcomingBookings = new ThreadTaskUpcomingBookings(this);
         taskUpcomingBookings.start();
-
-        //String [] test;
-        // test = new String[]{"mary", "john"};
-        //CustomListAdapter whatever = new CustomListAdapter(this, test);
-
     }
 
 
@@ -108,8 +102,9 @@ public class UpcomingActivity extends AppCompatActivity {
 
 
             }
-           final String[] test = new String[bookingsList.size()];
-           ownerInfo = new String[bookingsList.size()];
+            final String[] test = new String[bookingsList.size()];
+
+            ownerInfo = new String[bookingsList.size()];
             ownerAddress = new String[bookingsList.size()];
             ownerZCS = new String[bookingsList.size()];
             for (int j = 0; j < bookingsList.size(); j++) {

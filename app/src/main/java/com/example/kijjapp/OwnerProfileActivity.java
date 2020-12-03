@@ -23,7 +23,7 @@ public class OwnerProfileActivity extends AppCompatActivity {
     }
 
     public void showProfile(){
-        String my_string = getIntent().getStringExtra("key");
+        String my_string = getIntent().getStringExtra("key".toString());
         TextView nameTV = (TextView) findViewById(R.id.name);
         String name = "Name: " + my_string;
         nameTV.setText(name);

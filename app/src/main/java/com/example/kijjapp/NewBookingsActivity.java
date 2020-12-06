@@ -198,7 +198,6 @@ public class NewBookingsActivity extends AppCompatActivity {
 
         final String[] test = new String[validBookingsList.size()];
         for (int j = 0; j < validBookingsList.size(); j++) {
-            Log.w("MA", "booking id: " + validBookingsList.get(j).getId());
             startDate = validBookingsList.get(j).getStartDate();
             endDate = validBookingsList.get(j).getStartDate();
             name = validBookingsList.get(j).getPetOwner().getPetName();
@@ -208,7 +207,6 @@ public class NewBookingsActivity extends AppCompatActivity {
             //String list
             //test = new String[]{String.valueOf(bookingsList.size()), "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate, "test"};
             test[j] = "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nStatus: " + stat;
-            Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nStatus: " + stat);
             //error here
         }
 
@@ -305,6 +303,26 @@ public class NewBookingsActivity extends AppCompatActivity {
     public void setRating(double rating) {
         this.rating = rating;
     }
-
+    public void goToOwnerProfile(View view) {
+        final ListView listView;
+        //listView = (ListView) findViewById(R.id.listView);
+        //find out which one was clicked on (index)
+        View parentRow = (View) view.getParent();
+        listView = (ListView) parentRow.getParent();
+        int position = listView.getPositionForView(parentRow);
+        Log.w("MA", "Position: " + position);
+        //find info from that index in the booking list
+        String ownerName = validBookingsList.get(position).getPetOwner().getFirst() +  " " + validBookingsList.get(position).getPetOwner().getLast();
+        // ownerInfo[position] = bookingsList.get(position).getPetOwner().getFirst() + " " + bookingsList.get(position).getPetOwner().getLast();
+        String ownerAddress = validBookingsList.get(position).getPetOwner().getAddress();
+        String ownerZCS = validBookingsList.get(position).getPetOwner().getCity() + ", " + validBookingsList.get(position).getPetOwner().getState() + ", "
+                + validBookingsList.get(position).getPetOwner().getZip();
+        Intent intent = new Intent(NewBookingsActivity.this,OwnerProfileActivity.class);
+        intent.putExtra("key", ownerName);
+        intent.putExtra("key2", ownerAddress);
+        intent.putExtra("key3", ownerZCS);
+        //intent.putExtra("owner", )
+        startActivity(intent);
+    }
 }
 

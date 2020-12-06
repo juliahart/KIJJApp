@@ -167,7 +167,7 @@ public class UpcomingActivity extends AppCompatActivity {
         Log.w("MA", "Position: " + position);
         //find info from that index in the booking list
         String ownerName = bookingsList.get(position).getPetOwner().getFirst() +  " " + bookingsList.get(position).getPetOwner().getLast();
-       // ownerInfo[position] = bookingsList.get(position).getPetOwner().getFirst() + " " + bookingsList.get(position).getPetOwner().getLast();
+        // ownerInfo[position] = bookingsList.get(position).getPetOwner().getFirst() + " " + bookingsList.get(position).getPetOwner().getLast();
         String ownerAddress = bookingsList.get(position).getPetOwner().getAddress();
         String ownerZCS = bookingsList.get(position).getPetOwner().getCity() + ", " + bookingsList.get(position).getPetOwner().getState() + ", "
                 + bookingsList.get(position).getPetOwner().getZip();

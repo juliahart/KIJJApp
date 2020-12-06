@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.service.autofill.DateValueSanitizer;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -194,8 +196,6 @@ public class UpcomingActivity extends AppCompatActivity {
 
     public void finished(View view) {
         final ListView listView;
-        //listView = (ListView) findViewById(R.id.listView);
-        //find out which one was clicked on (index)
         View parentRow = (View) view.getParent();
         listView = (ListView) parentRow.getParent();
         int position = listView.getPositionForView(parentRow);
@@ -203,15 +203,25 @@ public class UpcomingActivity extends AppCompatActivity {
         String startDate = bookingsList.get(position).getStartDate();
         String endDate = bookingsList.get(position).getEndDate();
 
-
         int dateDifference = (int) getDateDiff(new SimpleDateFormat("yyyy-MM-dd"), endDate, startDate);
         System.out.println("dateDifference: " + dateDifference);
 
-        Log.w("MA", "diff "+ dateDifference);
-       // MainActivity.sitter.addPoints(dateDifference);
-        int points = MainActivity.sitter.getPoints();
-        MainActivity.sitter.setPoints(points + dateDifference);
+        if(dateDifference != 0) {
+            Log.w("MA", "diff " + dateDifference);
+            MainActivity.sitter.addPoints(dateDifference);
+        }
+        else if(dateDifference == 0)
+        {
+            Log.w("MA", "diff " + dateDifference);
+            MainActivity.sitter.addPoints(1);
+        }
+
+
+     //   listView.removeViewAt(position);
+       // listView.();
     }
+
+
 
     public static long getDateDiff(SimpleDateFormat format, String oldDate, String newDate) {
         try {

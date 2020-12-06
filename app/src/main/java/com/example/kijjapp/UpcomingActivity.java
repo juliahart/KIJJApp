@@ -129,10 +129,7 @@ public class UpcomingActivity extends AppCompatActivity {
                 ed = startDate.split("-");
                 length = Integer.parseInt(sd[1]) - Integer.parseInt(this.ed[1]);
 
-                ownerInfo[j] = bookingsList.get(j).getPetOwner().getFirst() + " " + bookingsList.get(j).getPetOwner().getLast();
-                ownerAddress[j] = bookingsList.get(j).getPetOwner().getAddress();
-                ownerZCS[j] = bookingsList.get(j).getPetOwner().getCity() + ", " + bookingsList.get(j).getPetOwner().getState() + ", "
-                        + bookingsList.get(j).getPetOwner().getZip();
+
             }
 
             runOnUiThread(new Runnable() {
@@ -162,15 +159,23 @@ public class UpcomingActivity extends AppCompatActivity {
 
     public void goToOwnerProfile(View view) {
         final ListView listView;
-        listView = (ListView) findViewById(R.id.listView);
+        //listView = (ListView) findViewById(R.id.listView);
         //find out which one was clicked on (index)
+        View parentRow = (View) view.getParent();
+        listView = (ListView) parentRow.getParent();
+        int position = listView.getPositionForView(parentRow);
+        Log.w("MA", "Position: " + position);
         //find info from that index in the booking list
-
+        String ownerName = bookingsList.get(position).getPetOwner().getFirst() +  " " + bookingsList.get(position).getPetOwner().getLast();
+       // ownerInfo[position] = bookingsList.get(position).getPetOwner().getFirst() + " " + bookingsList.get(position).getPetOwner().getLast();
+        String ownerAddress = bookingsList.get(position).getPetOwner().getAddress();
+        String ownerZCS = bookingsList.get(position).getPetOwner().getCity() + ", " + bookingsList.get(position).getPetOwner().getState() + ", "
+                + bookingsList.get(position).getPetOwner().getZip();
         Intent intent = new Intent(UpcomingActivity.this,OwnerProfileActivity.class);
-        intent.putExtra("key", Arrays.toString(ownerInfo));
-        intent.putExtra("key2", Arrays.toString(ownerAddress));
-        intent.putExtra("key3", Arrays.toString(ownerZCS));
-        intent.putExtra("owner", )
+        intent.putExtra("key", ownerName);
+        intent.putExtra("key2", ownerAddress);
+        intent.putExtra("key3", ownerZCS);
+        //intent.putExtra("owner", )
         startActivity(intent);
     }
 

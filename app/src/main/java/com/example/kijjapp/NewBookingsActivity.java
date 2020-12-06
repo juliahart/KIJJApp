@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -37,6 +38,8 @@ public class NewBookingsActivity extends AppCompatActivity {
 
     //public static final String URL_bookingInfo = "http://kijj.cs.loyola.edu/model/getValidBookings.php";
     public static final String URL_bookingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/getValidBookings.php";
+    //public static final String URL_doApply = "http://kijj.cs.loyola.edu/model/doApply.php";
+    public static final String URL_doApply = "http://klmatrangola.cs.loyola.edu/kijjTesting/doApply.php";
     private ArrayList<Booking> validBookingsList = new ArrayList<>();
 
 
@@ -323,6 +326,23 @@ public class NewBookingsActivity extends AppCompatActivity {
         intent.putExtra("key3", ownerZCS);
         //intent.putExtra("owner", )
         startActivity(intent);
+    }
+
+    public void doApply(View view) {
+        final ListView listView;
+        //listView = (ListView) findViewById(R.id.listView);
+        //find out which one was clicked on (index)
+        View parentRow = (View) view.getParent();
+        listView = (ListView) parentRow.getParent();
+        int position = listView.getPositionForView(parentRow);
+        Log.w("MA", "Position: " + position);
+        //find info from that index in the booking list
+        int bookingId = validBookingsList.get(position).getId();
+        ThreadTaskDoApply taskApply = new ThreadTaskDoApply(this, bookingId);
+        taskApply.start();
+        Button applyB = (Button) findViewById(R.id.apply);
+        applyB.setText("Applied");
+
     }
 }
 

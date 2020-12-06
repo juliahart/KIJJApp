@@ -3,21 +3,29 @@ package com.example.kijjapp;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.service.autofill.DateValueSanitizer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 public class UpcomingActivity extends AppCompatActivity {
     // public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
@@ -57,6 +65,7 @@ public class UpcomingActivity extends AppCompatActivity {
     public void goBack(View view) {
         finish();
     }
+
 
     @SuppressLint("SetTextI18n")
     public void updateBookingsArray(String s) {
@@ -124,10 +133,15 @@ public class UpcomingActivity extends AppCompatActivity {
                 //error here
 
 
+
+
+
                 //this is not working yet!!
-                sd = startDate.split("-");
-                ed = startDate.split("-");
-                length = Integer.parseInt(sd[1]) - Integer.parseInt(this.ed[1]);
+
+
+               // sd = startDate.split("-");
+                //ed = startDate.split("-");
+                //length = Integer.parseInt(sd[1]) - Integer.parseInt(this.ed[1]);
 
 
             }
@@ -159,15 +173,12 @@ public class UpcomingActivity extends AppCompatActivity {
 
     public void goToOwnerProfile(View view) {
         final ListView listView;
-        //listView = (ListView) findViewById(R.id.listView);
-        //find out which one was clicked on (index)
         View parentRow = (View) view.getParent();
         listView = (ListView) parentRow.getParent();
         int position = listView.getPositionForView(parentRow);
         Log.w("MA", "Position: " + position);
         //find info from that index in the booking list
         String ownerName = bookingsList.get(position).getPetOwner().getFirst() +  " " + bookingsList.get(position).getPetOwner().getLast();
-        // ownerInfo[position] = bookingsList.get(position).getPetOwner().getFirst() + " " + bookingsList.get(position).getPetOwner().getLast();
         String ownerAddress = bookingsList.get(position).getPetOwner().getAddress();
         String ownerZCS = bookingsList.get(position).getPetOwner().getCity() + ", " + bookingsList.get(position).getPetOwner().getState() + ", "
                 + bookingsList.get(position).getPetOwner().getZip();
@@ -175,13 +186,40 @@ public class UpcomingActivity extends AppCompatActivity {
         intent.putExtra("key", ownerName);
         intent.putExtra("key2", ownerAddress);
         intent.putExtra("key3", ownerZCS);
-        //intent.putExtra("owner", )
+
         startActivity(intent);
     }
 
     //This is not working yet
+
     public void finished(View view) {
-        MainActivity.sitter.addPoints(length);
+        final ListView listView;
+        //listView = (ListView) findViewById(R.id.listView);
+        //find out which one was clicked on (index)
+        View parentRow = (View) view.getParent();
+        listView = (ListView) parentRow.getParent();
+        int position = listView.getPositionForView(parentRow);
+        Log.w("MA", "Position: " + position);
+        String startDate = bookingsList.get(position).getStartDate();
+        String endDate = bookingsList.get(position).getEndDate();
+
+
+        int dateDifference = (int) getDateDiff(new SimpleDateFormat("yyyy-MM-dd"), endDate, startDate);
+        System.out.println("dateDifference: " + dateDifference);
+
+        Log.w("MA", "diff "+ dateDifference);
+       // MainActivity.sitter.addPoints(dateDifference);
+        int points = MainActivity.sitter.getPoints();
+        MainActivity.sitter.setPoints(points + dateDifference);
+    }
+
+    public static long getDateDiff(SimpleDateFormat format, String oldDate, String newDate) {
+        try {
+            return TimeUnit.DAYS.convert(format.parse(newDate).getTime() - format.parse(oldDate).getTime(), TimeUnit.MILLISECONDS);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
 

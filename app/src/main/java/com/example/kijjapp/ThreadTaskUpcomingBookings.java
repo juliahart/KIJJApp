@@ -1,7 +1,10 @@
 package com.example.kijjapp;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+
+import androidx.annotation.RequiresApi;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -16,6 +19,7 @@ public class ThreadTaskUpcomingBookings extends Thread{
         activity = fromActivity;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void run( ) {
         // update View
         Log.w( "MA", "Inside run upcoming" );

@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class NewBookingsActivity extends AppCompatActivity {
 
@@ -41,6 +42,9 @@ public class NewBookingsActivity extends AppCompatActivity {
     //public static final String URL_doApply = "http://kijj.cs.loyola.edu/model/doApply.php";
     public static final String URL_doApply = "http://klmatrangola.cs.loyola.edu/kijjTesting/doApply.php";
     private ArrayList<Booking> validBookingsList = new ArrayList<>();
+    String[] ownerInfo;
+    String[] ownerAddress;
+    String[] ownerZCS;
 
 
     @Override
@@ -70,7 +74,10 @@ public class NewBookingsActivity extends AppCompatActivity {
      * Method to go to profile view
      */
     public void goToProfile(View view) {
-        Intent intent = new Intent(this, LearnMoreActivity.class);
+        Intent intent = new Intent(NewBookingsActivity.this, LearnMoreActivity.class);
+        intent.putExtra("key", Arrays.toString(ownerInfo));
+        intent.putExtra("key2", Arrays.toString(ownerAddress));
+        intent.putExtra("key3", Arrays.toString(ownerZCS));
         startActivity(intent);
     }
 
@@ -198,7 +205,9 @@ public class NewBookingsActivity extends AppCompatActivity {
 
 
         Log.w("MA", "now Have: " + validBookingsList.size());
-
+        ownerInfo = new String[validBookingsList.size()];
+        ownerAddress = new String[validBookingsList.size()];
+        ownerZCS = new String[validBookingsList.size()];
         final String[] test = new String[validBookingsList.size()];
         for (int j = 0; j < validBookingsList.size(); j++) {
             startDate = validBookingsList.get(j).getStartDate();
@@ -211,6 +220,10 @@ public class NewBookingsActivity extends AppCompatActivity {
             //test = new String[]{String.valueOf(bookingsList.size()), "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate, "test"};
             test[j] = "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nStatus: " + stat;
             //error here
+            ownerInfo[j] = validBookingsList.get(j).getPetOwner().getFirst() + " " + validBookingsList.get(j).getPetOwner().getLast();
+            ownerAddress[j] = validBookingsList.get(j).getPetOwner().getAddress();
+            ownerZCS[j] = validBookingsList.get(j).getPetOwner().getCity() + ", " + validBookingsList.get(j).getPetOwner().getState() + ", "
+                    + validBookingsList.get(j).getPetOwner().getZip();
         }
 
         runOnUiThread(new Runnable() {

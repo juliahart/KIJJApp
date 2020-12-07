@@ -213,8 +213,6 @@ public class UpcomingActivity extends AppCompatActivity {
         String endDate = bookingsList.get(position).getEndDate();
         int bookingId = bookingsList.get(position).getId();
         bookingsList.remove(position);
-        //listView.removeViewAt(position);
-
 
         int dateDifference = (int) getDateDiff(new SimpleDateFormat("yyyy-MM-dd"), endDate, startDate);
         System.out.println("dateDifference: " + dateDifference);

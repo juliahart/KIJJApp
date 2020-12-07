@@ -33,6 +33,12 @@ public class UpcomingActivity extends AppCompatActivity {
     // public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
     public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
 
+    // public static final String URL_points = "http://kijj.cs.loyola.edu/model/changePoints.php";
+    public static final String URL_points= "http://klmatrangola.cs.loyola.edu/kijjTesting/changePoints.php";
+
+    // public static final String URL_removeBooking = "http://kijj.cs.loyola.edu/model/removeBooking.php";
+    public static final String URL_removeBooking = "http://klmatrangola.cs.loyola.edu/kijjTesting/removeBooking.php";
+
     String[] sd;
     String[] ed;
     int length;
@@ -146,6 +152,7 @@ public class UpcomingActivity extends AppCompatActivity {
                 //length = Integer.parseInt(sd[1]) - Integer.parseInt(this.ed[1]);
 
 
+
             }
 
             runOnUiThread(new Runnable() {
@@ -196,15 +203,33 @@ public class UpcomingActivity extends AppCompatActivity {
 
     public void finished(View view) {
         final ListView listView;
+        //listView = (ListView) findViewById(R.id.listView);
+        //find out which one was clicked on (index)
         View parentRow = (View) view.getParent();
         listView = (ListView) parentRow.getParent();
         int position = listView.getPositionForView(parentRow);
         Log.w("MA", "Position: " + position);
         String startDate = bookingsList.get(position).getStartDate();
         String endDate = bookingsList.get(position).getEndDate();
+        int bookingId = bookingsList.get(position).getId();
+        bookingsList.remove(position);
+        //listView.removeViewAt(position);
+
 
         int dateDifference = (int) getDateDiff(new SimpleDateFormat("yyyy-MM-dd"), endDate, startDate);
         System.out.println("dateDifference: " + dateDifference);
+
+        Log.w("MA", "diff "+ dateDifference);
+
+       // MainActivity.sitter.addPoints(dateDifference);
+        int points = MainActivity.sitter.getPoints();
+        MainActivity.sitter.setPoints(points + dateDifference);
+        ThreadTaskPoints threadTaskPoints = new ThreadTaskPoints(this, points);
+        threadTaskPoints.start();
+        Log.w("MA", "booking id to remove: " + bookingId);
+        ThreadTaskRemoveBooking threadTaskRemoveBooking = new ThreadTaskRemoveBooking(this, bookingId);
+        threadTaskRemoveBooking.start();
+
 
         if(dateDifference != 0) {
             Log.w("MA", "diff " + dateDifference);
@@ -230,6 +255,7 @@ public class UpcomingActivity extends AppCompatActivity {
             e.printStackTrace();
             return 0;
         }
+
     }
 
 

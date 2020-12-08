@@ -8,9 +8,12 @@ import android.os.Bundle;
 import android.service.autofill.DateValueSanitizer;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -207,7 +210,7 @@ public class UpcomingActivity extends AppCompatActivity {
         //find out which one was clicked on (index)
         View parentRow = (View) view.getParent();
         listView = (ListView) parentRow.getParent();
-        int position = listView.getPositionForView(parentRow);
+        final int position = listView.getPositionForView(parentRow);
         Log.w("MA", "Position: " + position);
         String startDate = bookingsList.get(position).getStartDate();
         String endDate = bookingsList.get(position).getEndDate();
@@ -238,11 +241,10 @@ public class UpcomingActivity extends AppCompatActivity {
             Log.w("MA", "diff " + dateDifference);
             MainActivity.sitter.addPoints(1);
         }
-
-
-     //   listView.removeViewAt(position);
-       // listView.();
+        listView.getChildAt(position).setVisibility(View.GONE);
+        listView.getChildAt(position).getLayoutParams().height = 1;
     }
+
 
 
 

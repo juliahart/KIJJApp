@@ -27,14 +27,21 @@ public class PointsActivity extends AppCompatActivity {
         updatePointsView();
     }
 
-    public void updatePointsView(){
-        Log.w("MA", "points = "+ MainActivity.sitter.getPoints());
-        TextView pointsTV = (TextView) findViewById( R.id.yourPoints );
-        pointsTV.setText( "You have: "+ String.valueOf(MainActivity.sitter.getPoints())  + " points" );
-        String left = String.valueOf( 25 - MainActivity.sitter.getPoints());
-        TextView leftTV = (TextView) findViewById( R.id.pointsToGet );
-        leftTV.setText(left + " more points until you can redeem");
+    public void updatePointsView() {
+        Log.w("MA", "points = " + MainActivity.sitter.getPoints());
+        TextView pointsTV = (TextView) findViewById(R.id.yourPoints);
+        pointsTV.setText("You have: " + String.valueOf(MainActivity.sitter.getPoints()) + " points");
 
+        String left = String.valueOf(25 - MainActivity.sitter.getPoints());
+
+        if (Integer.parseInt(left) >= 0) {
+            TextView leftTV = (TextView) findViewById(R.id.pointsToGet);
+            leftTV.setText(left + " more points until you can redeem");
+        } else
+        {
+            TextView leftTV = (TextView) findViewById(R.id.pointsToGet);
+            leftTV.setText(0 + " more points until you can redeem");
+        }
         ThreadTaskRemovePoints threadTaskRemovePoints = new ThreadTaskRemovePoints(this, MainActivity.sitter.getPoints());
         threadTaskRemovePoints.start();
 

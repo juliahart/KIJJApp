@@ -11,6 +11,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
         import java.util.Scanner;
 
+/**
+ * This is the ThreadTaskUpdateSitter Class
+ * @authors: Team KIJJ
+ */
+
 public class ThreadTaskUpdateSitter extends Thread{
     private ProfileActivity activity;
     //ListView listView;
@@ -19,6 +24,9 @@ public class ThreadTaskUpdateSitter extends Thread{
         activity = fromActivity;
     }
 
+    /**
+     * Method to update sitter, connects to database
+     */
     public void run( ) {
         // update View
         Log.w( "MA", "Inside run upcoming" );
@@ -34,21 +42,5 @@ public class ThreadTaskUpdateSitter extends Thread{
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // create an input stream for the URL
-
-        // read from that input stream
-            //Scanner scan = new Scanner( is );
-            //String s = "";
-            //while( scan.hasNext( ) ) {
-            //    s += scan.nextLine( );
-
-                // s is expected to be a JSON string
-           // }
-            // Log.w("booking Array: ", s);
-            //activity.updateSitterInfo();//s);
-            // activity.createList(s);
-       // } catch( Exception e ) {
-        //    Log.w( "MA", "exception json: " + e.getMessage() );
-       // }
     }
 }

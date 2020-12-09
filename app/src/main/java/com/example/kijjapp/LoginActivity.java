@@ -14,10 +14,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * This is the LoginActivity Class
+ * @authors: Team KIJJ
+ */
+
 public class LoginActivity extends AppCompatActivity {
-    //
-    // ISSUE : LOGS IN IF FIELDS ARE EMPTY -- I think this is fixed now
-    //
     public static final String CheckLoginURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/checkSitterLogin.php";
    // public static final String CheckLoginURL = "http://kijj.cs.loyola.edu/model/checkSitterLogin.php";
 
@@ -31,6 +33,10 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method logs in the user
+     * @param view the view
+     */
     public void doLogin(View view){
         Log.w("MA", "in doLogin");
         EditText emailET= (EditText) findViewById( R.id.username);
@@ -44,6 +50,11 @@ public class LoginActivity extends AppCompatActivity {
         taskCheck.start();
     }
 
+    /**
+     * This updates the sitter information
+     * @param json the json
+     * @param view the view
+     */
     public void updateSitterWithJSON( String json, View view ) {
         Log.w("MA", "Inside updateViewWithJson");
         String first="";
@@ -76,14 +87,9 @@ public class LoginActivity extends AppCompatActivity {
             MainActivity.sitter.setEmail(MainActivity.email);
             goToHomePage(view);
 
-
-
         } catch (JSONException jsone) {
             Log.w("MA", "JSON exception: " + jsone.getMessage());
         }
-
-
-
     }
 
     /**
@@ -115,7 +121,10 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * This gets the password
+     * @return the password as a string
+     */
     public String getPass() {
         return pass;
     }

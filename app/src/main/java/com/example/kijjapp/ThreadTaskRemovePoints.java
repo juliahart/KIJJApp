@@ -13,6 +13,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
+/**
+ * This is the ThreadTaskRemovePoints Class
+ * @authors: Team KIJJ
+ */
+
 public class ThreadTaskRemovePoints extends Thread {
     private PointsActivity activity;
     int points;
@@ -23,6 +28,9 @@ public class ThreadTaskRemovePoints extends Thread {
         this.points = points;
     }
 
+    /**
+     * Method to remove points, connects to database
+     */
     public void run() {
         // update View
         Log.w("MA", "Inside do apply");

@@ -8,8 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 /**
- * this is a working adapter class for the list view
- * only uses the name rn for testing
+ * This is the SearchCustomAdapter Class
+ * it is used in the NewBookingsActivity Class
+ * @authors: Team KIJJ
  */
 public class SearchCustomAdapter extends ArrayAdapter {
     private final Activity context;

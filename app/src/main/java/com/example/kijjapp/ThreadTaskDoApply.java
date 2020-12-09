@@ -1,5 +1,10 @@
 package com.example.kijjapp;
 
+/**
+ * This is the ThreadTaskDoApply Class
+ * @authors: Team KIJJ
+ */
+
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -23,6 +28,9 @@ public class ThreadTaskDoApply extends Thread {
         this.bookingId = bookingId;
     }
 
+    /**
+     * Method to run  apply, connects to database
+     */
     public void run() {
         // update View
         Log.w("MA", "Inside do apply");

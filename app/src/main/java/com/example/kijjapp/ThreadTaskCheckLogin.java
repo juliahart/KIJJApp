@@ -1,5 +1,10 @@
 package com.example.kijjapp;
 
+/**
+ * This is the ThreadTaskCheckLogin Class
+ * @authors: Team KIJJ
+ */
+
 import android.util.Log;
 import android.view.View;
 
@@ -17,7 +22,10 @@ public class ThreadTaskCheckLogin extends Thread {
             this.view = view;
         }
 
-        public void run( ) {
+    /**
+     * Method to run login, connects to database
+     */
+    public void run( ) {
             // update View
             Log.w( "MA", "Inside run URL" );
 

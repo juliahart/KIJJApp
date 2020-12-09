@@ -12,6 +12,10 @@ package com.example.kijjapp;
         import java.net.MalformedURLException;
         import java.net.URL;
         import java.util.Scanner;
+/**
+ * This is the ThreadTaskPoints Class
+ * @authors: Team KIJJ
+ */
 
 public class ThreadTaskPoints extends Thread {
     private UpcomingActivity activity;
@@ -23,6 +27,9 @@ public class ThreadTaskPoints extends Thread {
         this.points = points;
     }
 
+    /**
+     * Method to run points, connects to database
+     */
     public void run() {
         // update View
         Log.w("MA", "Inside do apply");

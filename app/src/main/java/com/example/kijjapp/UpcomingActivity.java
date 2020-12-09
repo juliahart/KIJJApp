@@ -32,6 +32,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * This is the UpcomingActivity Class
+ * @authors: Team KIJJ
+ */
+
 public class UpcomingActivity extends AppCompatActivity {
     // public static final String URL_upcomingInfo = "http://kijj.cs.loyola.edu/model/bookingInfo.php";
     public static final String URL_upcomingInfo = "http://klmatrangola.cs.loyola.edu/kijjTesting/bookingInfo.php";
@@ -116,13 +121,6 @@ public class UpcomingActivity extends AppCompatActivity {
 
                 bookingsList.add(tempBooking);
 
-
-                // This only outputs 1 booking ( I think that it might not retrieve all the bookings
-                // the size of bookingsList is 1)
-                //doesnt work for kijj forgot to change php there
-                //exception json: Only the original thread that created a view hierarchy can touch its views.
-
-
             }
             final String[] test = new String[bookingsList.size()];
 
@@ -135,26 +133,11 @@ public class UpcomingActivity extends AppCompatActivity {
                 endDate = bookingsList.get(j).getEndDate();
                 name = bookingsList.get(j).getPetOwner().getPetName();
                 type = bookingsList.get(j).getPetOwner().getType();
-                //error here?
-                //String list
+
 
                 //test = new String[]{String.valueOf(bookingsList.size()), "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate, "test"};
                 test[j] = "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate;
                 Log.w("MA", "booking String: " + "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "test");
-                //error here
-
-
-
-
-
-                //this is not working yet!!
-
-
-               // sd = startDate.split("-");
-                //ed = startDate.split("-");
-                //length = Integer.parseInt(sd[1]) - Integer.parseInt(this.ed[1]);
-
-
 
             }
 
@@ -174,15 +157,26 @@ public class UpcomingActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Method to get the bookingsList
+     * @return
+     */
     public String getBookingsList() {
         return bookingsList.toString();
     }
 
-
+    /**
+     * Method to set bookingsList
+     * @param bookingsList
+     */
     public void setBookingsList(ArrayList<Booking> bookingsList) {
         this.bookingsList = bookingsList;
     }
 
+    /**
+     * Method to go to the owner's profile if the button is clicked
+     * @param view
+     */
     public void goToOwnerProfile(View view) {
         final ListView listView;
         View parentRow = (View) view.getParent();
@@ -202,8 +196,11 @@ public class UpcomingActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //This is not working yet
 
+    /**
+     * Method for if user is finsihed with booking, gets the amount of points they've earned
+     * @param view
+     */
     public void finished(View view) {
         final ListView listView;
         //listView = (ListView) findViewById(R.id.listView);
@@ -246,8 +243,13 @@ public class UpcomingActivity extends AppCompatActivity {
     }
 
 
-
-
+    /**
+     * Get the difference between the start and end dates
+     * @param format
+     * @param oldDate
+     * @param newDate
+     * @return
+     */
     public static long getDateDiff(SimpleDateFormat format, String oldDate, String newDate) {
         try {
             return TimeUnit.DAYS.convert(format.parse(newDate).getTime() - format.parse(oldDate).getTime(), TimeUnit.MILLISECONDS);

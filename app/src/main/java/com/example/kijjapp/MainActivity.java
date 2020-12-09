@@ -13,6 +13,11 @@ import org.json.JSONObject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * This is the MainActivity Class
+ * @authors: Team KIJJ
+ */
+
 public class MainActivity extends AppCompatActivity {
     public static final String URL_JSON = "http://kijj.cs.loyola.edu/model/sitterProfile.php";
     //public static final String URL_JSON = "http://klmatrangola.cs.loyola.edu/kijjTesting/siterProfile.php";
@@ -20,18 +25,18 @@ public class MainActivity extends AppCompatActivity {
     public static PetSitter sitter;
     public static PetOwner owner;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        
-        // DO NOT TRY TO ACCESS THE THREAD RESULTS HERE (and update the View)
     }
 
 
+    /**
+     * checks that the login is valid
+     * @param s login string
+     * @param view the view
+     */
     public void isValidLogin(String s, View view)
     {
         if(s.equals("true"))

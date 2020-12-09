@@ -1,5 +1,9 @@
 package com.example.kijjapp;
 
+/**
+ * This is the PetOwner Class
+ * @authors: Team KIJJ
+ */
 
 public class PetOwner {
 
@@ -13,17 +17,28 @@ public class PetOwner {
     private double lat;
     private double longi;
     private String desc;
-
-
-
     private double rating;
-
-
-
     private String type;
     private String breed;
     private String petName;
 
+    /**
+     * Constructor for the pet owner
+     * @param email
+     * @param first
+     * @param last
+     * @param address
+     * @param city
+     * @param state
+     * @param zip
+     * @param lat
+     * @param longi
+     * @param desc
+     * @param rating
+     * @param type
+     * @param breed
+     * @param petName
+     */
     public PetOwner(String email, String first, String last, String address, String city, String state, int zip, double lat, double longi, String desc, double rating, String type, String breed, String petName) {
         this.email = email;
         this.first = first;
@@ -41,6 +56,9 @@ public class PetOwner {
         this.petName = petName;
     }
 
+    /**
+     * Getters and setter for the pet owner information
+     */
     public String getEmail() {
         return email;
     }

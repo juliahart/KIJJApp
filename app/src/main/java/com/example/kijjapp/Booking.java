@@ -1,5 +1,9 @@
 package com.example.kijjapp;
 
+/**
+ * This is the Booking Class
+ * @authors: Team KIJJ
+ */
 public class Booking {
     private int id;
     private PetSitter petSitter;
@@ -11,6 +15,9 @@ public class Booking {
 
     public Booking(){}
 
+    /**
+     * Constructor for booking class
+     */
     public Booking(int id, PetSitter petSitter, PetOwner petOwner, String endDate, String startDate,String status) {
         this.id = id;
         this.petSitter = petSitter;
@@ -20,6 +27,9 @@ public class Booking {
         this.status = status;
     }
 
+    /**
+     * Getters & setters for booking information
+     */
     public int getId() {
         return id;
     }
@@ -27,7 +37,6 @@ public class Booking {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getEndDate() {
         return endDate;

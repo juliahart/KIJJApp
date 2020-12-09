@@ -12,6 +12,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * This is the SignUpActivity Class
+ * @authors: Team KIJJ
+ */
+
 public class SignUpActivity extends AppCompatActivity {
     private String pass;
     public static final String SignupURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/sitterSignup.php";
@@ -24,6 +29,10 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method to sign up the user
+     * @param view
+     */
     public void doSignUP(View view){
         EditText emailEt = (EditText) findViewById( R.id.username);
         String email = emailEt.getText().toString();

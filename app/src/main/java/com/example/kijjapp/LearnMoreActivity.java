@@ -5,6 +5,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+/**
+ * This is the LearnMoreActivity Class
+ * @authors: Team KIJJ
+ */
 
 public class LearnMoreActivity extends AppCompatActivity {
     @Override
@@ -22,12 +26,8 @@ public class LearnMoreActivity extends AppCompatActivity {
     }
 
     /**
-     * TO DO!!!!
+     * This shows the profile
      */
-    public void apply(View view)
-    {
-    }
-
     public void showProfile(){
         String my_string = getIntent().getStringExtra("key".toString());
         TextView nameTV = (TextView) findViewById(R.id.name);

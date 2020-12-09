@@ -8,6 +8,11 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
 
+/**
+ * This is the ThreadTaskSignUp Class
+ * @authors: Team KIJJ
+ */
+
 public class ThreadTaskSignUp extends Thread {
         private SignUpActivity activity;
         private View view;
@@ -18,6 +23,9 @@ public class ThreadTaskSignUp extends Thread {
             this.view=view;
         }
 
+    /**
+     * Method to run signup, connects to database
+     */
         public void run( ) {
             // update View
             Log.w( "MA", "Inside run Signup" );

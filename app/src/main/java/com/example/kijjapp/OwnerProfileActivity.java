@@ -8,6 +8,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
+/**
+ * This is the OwnerProfileActivity Class
+ * @authors: Team KIJJ
+ */
 
 public class OwnerProfileActivity extends AppCompatActivity {
 
@@ -19,9 +23,11 @@ public class OwnerProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ownerprofile);
         showProfile();
-
     }
 
+    /**
+     * Method to show the owner's profile
+     */
     public void showProfile(){
         String my_string = getIntent().getStringExtra("key");
         TextView nameTV = (TextView) findViewById(R.id.name);
@@ -38,8 +44,6 @@ public class OwnerProfileActivity extends AppCompatActivity {
         String cityStateZip =  my_string3;
         cityStateZipTV.setText(cityStateZip);
     }
-
-
 
 
     /**

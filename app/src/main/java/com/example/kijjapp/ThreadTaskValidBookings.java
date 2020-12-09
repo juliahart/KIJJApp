@@ -10,6 +10,10 @@ import java.util.Scanner;
 
 import android.util.Log;
 
+/**
+ * This is the ThreadTaskValidBookings Class
+ * @authors: Team KIJJ
+ */
 
 public class ThreadTaskValidBookings extends Thread{
     private NewBookingsActivity activity;
@@ -19,6 +23,9 @@ public class ThreadTaskValidBookings extends Thread{
         activity = fromActivity;
     }
 
+    /**
+     * Method to get valid bookings, connects to database
+     */
     public void run( ) {
         // update View
         Log.w( "MA", "Inside run upcoming" );

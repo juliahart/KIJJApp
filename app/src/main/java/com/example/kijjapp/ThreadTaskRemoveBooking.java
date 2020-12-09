@@ -13,6 +13,11 @@ package com.example.kijjapp;
             import java.net.URL;
             import java.util.Scanner;
 
+/**
+ * This is the ThreadTaskRemoveBooking Class
+ * @authors: Team KIJJ
+ */
+
 public class ThreadTaskRemoveBooking extends Thread {
     private UpcomingActivity activity;
     int id;
@@ -23,6 +28,9 @@ public class ThreadTaskRemoveBooking extends Thread {
         this.id = id;
     }
 
+    /**
+     * Method to remove booking, connects to database
+     */
     public void run() {
         // update View
         Log.w("MA", "Inside do apply");

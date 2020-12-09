@@ -1,5 +1,10 @@
 package com.example.kijjapp;
 
+/**
+ * This is the ProfileActivity Class
+ * @authors: Team KIJJ
+ */
+
 import android.app.AutomaticZenRule;
 import android.os.Bundle;
 import android.text.InputType;
@@ -40,6 +45,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method to show the profile of the user (pet sitter)
+     */
     public void showProfile(){
         TextView nameTV = (TextView) findViewById(R.id.name);
         String name = "Name: " + MainActivity.sitter.getFirst()+ " "+ MainActivity.sitter.getLast();
@@ -63,7 +71,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     /**
-     * TO DO!!
+     * Method to edit the user's profile
      */
     public void editProfile(View view)
     {
@@ -77,17 +85,17 @@ public class ProfileActivity extends AppCompatActivity {
         b.setVisibility(View.VISIBLE);
 
     }
+
+    /**
+     * method to save the edits that the user makes to their profile
+     * @param view
+     */
     public void save(View view)
     {
-        //MainActivity.sitter.setFirst(editText.toString());
-        //MainActivity.sitter.setLast(editText.toString());
         editText.setEnabled(false);
-
-        //MainActivity.sitter.setAddress(editAdd.toString());
         editAdd.setEnabled(false);
-
-       // MainActivity.sitter.setCity(editZip.toString());
         editZip.setEnabled(false);
+
         //handle name change
         String name = editText.getText().toString();
         String[] names = name.split(" ");

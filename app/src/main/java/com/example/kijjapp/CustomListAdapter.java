@@ -8,9 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 /**
- * this is an adapter class for the list view for showing upcoming bookings
+ * This is the Custom Adapter Class for the list of upcoming bookings
+ * it is used in the upcomingActivity class
+ * @authors: Team KIJJ
  */
 public class CustomListAdapter extends ArrayAdapter {
     private  final Activity context;

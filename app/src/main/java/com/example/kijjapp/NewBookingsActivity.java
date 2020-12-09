@@ -22,6 +22,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * This is the NewBookingsActivity Class
+ * @authors: Team KIJJ
+ */
+
 public class NewBookingsActivity extends AppCompatActivity {
 
     private TextView tv;
@@ -54,6 +59,7 @@ public class NewBookingsActivity extends AppCompatActivity {
         seekBar = findViewById(R.id.distance_bar);
         tv = findViewById(R.id.distanceView);
 
+        //the seek bar = the distance bar
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -153,11 +159,14 @@ public class NewBookingsActivity extends AppCompatActivity {
         Log.w("MA", "searching...");
     }
 
+    /**
+     * Method to update all the bookings
+     * @param s
+     */
     public void updateAllBookings(String s) {
         final ListView searchListView;
         searchListView = (ListView) findViewById(R.id.SearchListView);
         validBookingsList.clear();
-
 
         String endDate = null;
         String startDate = null;
@@ -189,20 +198,12 @@ public class NewBookingsActivity extends AppCompatActivity {
 
 
                 validBookingsList.add(tempBooking);
-
-
-                // This only outputs 1 booking ( I think that it might not retrieve all the bookings
-                // the size of bookingsList is 1)
-                //doesnt work for kijj forgot to change php there
-                //exception json: Only the original thread that created a view hierarchy can touch its views.
-
             }
 
         } catch (
                 JSONException jsone) {
             Log.w("MA", "JSON exception: " + jsone.getMessage());
         }
-
 
         Log.w("MA", "now Have: " + validBookingsList.size());
         ownerInfo = new String[validBookingsList.size()];
@@ -215,8 +216,7 @@ public class NewBookingsActivity extends AppCompatActivity {
             name = validBookingsList.get(j).getPetOwner().getPetName();
             type = validBookingsList.get(j).getPetOwner().getType();
             String stat = validBookingsList.get(j).getStatus();
-            //error here?
-            //String list
+
             //test = new String[]{String.valueOf(bookingsList.size()), "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate, "test"};
             test[j] = "Name: " + name + "\nType: " + type + "\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nStatus: " + stat;
             //error here
@@ -233,13 +233,12 @@ public class NewBookingsActivity extends AppCompatActivity {
                 searchListView.setAdapter(whatever);
             }
         });
-        //CustomListAdapter whatever = new CustomListAdapter(this, test);
-        //searchListView.setAdapter(whatever);
-
-
     }
 
 
+    /**
+     * Getters and setters
+     */
     public String getBreed() {
         return breed;
     }
@@ -319,6 +318,11 @@ public class NewBookingsActivity extends AppCompatActivity {
     public void setRating(double rating) {
         this.rating = rating;
     }
+
+    /**
+     * Method to go to the owner's profile
+     * @param view
+     */
     public void goToOwnerProfile(View view) {
         final ListView listView;
         //listView = (ListView) findViewById(R.id.listView);
@@ -341,6 +345,10 @@ public class NewBookingsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Method to apply for the open booking
+     * @param view
+     */
     public void doApply(View view) {
         final ListView listView;
         //listView = (ListView) findViewById(R.id.listView);

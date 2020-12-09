@@ -7,6 +7,11 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Scanner;
 
+/**
+ * This is the ThreadTaskJsonUrl Class
+ * @authors: Team KIJJ
+ */
+
 public class ThreadTaskJsonUrl extends Thread {
     private LoginActivity activity;
     private UpcomingActivity act;
@@ -17,6 +22,9 @@ public class ThreadTaskJsonUrl extends Thread {
         this.view = view;
     }
 
+    /**
+     * Method to run JSON, connects to database
+     */
     public void run( ) {
         // update View
         Log.w( "MA", "Inside run JSON" );

@@ -1,5 +1,9 @@
 package com.example.kijjapp;
 
+/**
+ * This is the PointsActivity Class
+ * @authors: Team KIJJ
+ */
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -14,11 +18,8 @@ public class PointsActivity extends AppCompatActivity {
     //public static final String PointsURL = "http://klmatrangola.cs.loyola.edu/kijjTesting/sitterPoints.php";
     public static final String PointsURL = "http://kijj.cs.loyola.edu/model/sitterPoints.php";
 
-
     // public static final String URL_points = "http://kijj.cs.loyola.edu/model/changePoints.php";
     public static final String URL_points= "http://klmatrangola.cs.loyola.edu/kijjTesting/changePoints.php";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +28,14 @@ public class PointsActivity extends AppCompatActivity {
         updatePointsView();
     }
 
+    /**
+     * Method to update the points view
+     */
     public void updatePointsView() {
         Log.w("MA", "points = " + MainActivity.sitter.getPoints());
         TextView pointsTV = (TextView) findViewById(R.id.yourPoints);
         pointsTV.setText("You have: " + String.valueOf(MainActivity.sitter.getPoints()) + " points");
-
         String left = String.valueOf(25 - MainActivity.sitter.getPoints());
-
         if (Integer.parseInt(left) >= 0) {
             TextView leftTV = (TextView) findViewById(R.id.pointsToGet);
             leftTV.setText(left + " more points until you can redeem");
@@ -44,8 +46,6 @@ public class PointsActivity extends AppCompatActivity {
         }
         ThreadTaskRemovePoints threadTaskRemovePoints = new ThreadTaskRemovePoints(this, MainActivity.sitter.getPoints());
         threadTaskRemovePoints.start();
-
-
     }
 
     /**
@@ -58,7 +58,7 @@ public class PointsActivity extends AppCompatActivity {
 
 
     /**
-     * I think that this is working
+     * method to redeem the points for a gift card if the user has enough
      */
     public void redeemPoints(View v)
     {

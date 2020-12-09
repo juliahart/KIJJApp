@@ -1,4 +1,8 @@
 package com.example.kijjapp;
+/**
+ * This is the PetSitter Class
+ * @authors: Team KIJJ
+ */
 
 public class PetSitter {
 
@@ -13,6 +17,19 @@ public class PetSitter {
     private double longi;
     public int points;
 
+    /**
+     * Constructor for the Pet sitter
+     * @param email
+     * @param first
+     * @param last
+     * @param address
+     * @param city
+     * @param state
+     * @param zip
+     * @param lat
+     * @param longi
+     * @param points
+     */
     public PetSitter(String email, String first, String last, String address, String city, String state, int zip, double lat, double longi, int points) {
         this.email = email;
         this.first = first;
@@ -30,6 +47,9 @@ public class PetSitter {
 
     }
 
+    /**
+     * getters and setters for the pet sitter information
+     */
     public String getEmail() {
         return email;
     }

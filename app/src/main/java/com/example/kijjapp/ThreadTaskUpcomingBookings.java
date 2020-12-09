@@ -10,6 +10,11 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Scanner;
 
+/**
+ * This is the ThreadTaskUpcomingBookings Class
+ * @authors: Team KIJJ
+ */
+
 public class ThreadTaskUpcomingBookings extends Thread{
     private UpcomingActivity activity;
     ListView listView;
@@ -19,6 +24,9 @@ public class ThreadTaskUpcomingBookings extends Thread{
         activity = fromActivity;
     }
 
+    /**
+     * Method to run upcoming bookings, connects to database
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void run( ) {
         // update View

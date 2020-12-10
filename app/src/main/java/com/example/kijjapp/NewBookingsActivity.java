@@ -361,8 +361,13 @@ public class NewBookingsActivity extends AppCompatActivity {
         int bookingId = validBookingsList.get(position).getId();
         ThreadTaskDoApply taskApply = new ThreadTaskDoApply(this, bookingId);
         taskApply.start();
-        Button applyB = (Button) findViewById(R.id.apply);
-        applyB.setText("Applied");
+        //Button applyB = (Button) listView.getItemAtPosition(position) findView;
+        //Button applyB = (Button) findViewById(R.id.apply).;
+       // applyB.setText("Applied");
+
+
+        //validBookingsList.remove(position);
+        //listView.add(position, "followed");
 
     }
 }

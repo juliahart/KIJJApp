@@ -10,7 +10,7 @@
         android:id="@+id/signup"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         android:text ="@string/sign_up"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/signup"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:autofillHints="First Name"
         android:hint="@string/first_name" />
 
@@ -128,13 +128,24 @@
         android:autofillHints="Create Password"
         android:layout_centerHorizontal="true" />
 
+    <EditText
+        android:id="@+id/password2"
+        android:layout_below="@id/password"
+        android:hint="@string/password"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:autofillHints="Create Password"
+        android:layout_centerHorizontal="true" />
+
+
 
 
     <Button
         android:id="@+id/button_id"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorAccent"
-        android:layout_below="@+id/password"
+        android:layout_below="@+id/password2"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"

@@ -70,6 +70,8 @@ public class PointsActivity extends AppCompatActivity {
         }
         else
         {
+            MainActivity.sitter.setPoints(MainActivity.sitter.getPoints() - 25);
+            updatePointsView();
             showAlertHasPoints();
         }
 

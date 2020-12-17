@@ -1,0 +1,333 @@
+@startuml
+class com.example.kijjapp.ThreadTaskCheckLogin {
+- LoginActivity activity
+- UpcomingActivity act
+- View view
++ void run()
+}
+class com.example.kijjapp.PointsActivity {
++ {static} String PointsURL
++ {static} String URL_points
+# void onCreate(Bundle)
++ void updatePointsView()
++ void goBack(View)
++ void redeemPoints(View)
++ void showAlertHasPoints()
++ void showAlertDialogNoPoints()
+}
+class com.example.kijjapp.Booking {
+- int id
+- PetSitter petSitter
+- PetOwner petOwner
+- String endDate
+- String startDate
+- String status
+- String[] ed
++ int getId()
++ void setId(int)
++ String getEndDate()
++ void setEndDate(String)
++ String getStartDate()
++ void setStartDate(String)
++ PetSitter getPetSitter()
++ void setPetSitter(PetSitter)
++ PetOwner getPetOwner()
++ void setPetOwner(PetOwner)
++ String getStatus()
++ void setStatus(String)
++ int startToEnd()
+}
+class com.example.kijjapp.ThreadTaskSignUp {
+- SignUpActivity activity
+- View view
++ void run()
+}
+class com.example.kijjapp.ThreadTaskRemoveBooking {
+- UpcomingActivity activity
+~ int id
++ void run()
+}
+class com.example.kijjapp.ThreadTaskJsonUrl {
+- LoginActivity activity
+- UpcomingActivity act
+- View view
++ void run()
+}
+class com.example.kijjapp.ThreadTaskPoints {
+- UpcomingActivity activity
+~ int points
++ void run()
+}
+class com.example.kijjapp.LoginActivity {
++ {static} String CheckLoginURL
++ {static} String URL_JSON
+- String pass
+# void onCreate(Bundle)
++ void doLogin(View)
++ void updateSitterWithJSON(String,View)
++ void goToHomePage(View)
++ void goBack(View)
++ void isValidLogin(String,View)
++ String getPass()
+}
+class com.example.kijjapp.ThreadTaskRemovePoints {
+- PointsActivity activity
+~ int points
++ void run()
+}
+class com.example.kijjapp.PetSitter {
+- String email
+- String first
+- String last
+- String address
+- String city
+- String state
+- int zip
+- double lat
+- double longi
++ int points
++ String getEmail()
++ void setEmail(String)
++ String getFirst()
++ void setFirst(String)
++ String getLast()
++ void setLast(String)
++ String getAddress()
++ void setAddress(String)
++ String getCity()
++ void setCity(String)
++ String getState()
++ void setState(String)
++ int getZip()
++ void setZip(int)
++ double getLat()
++ void setLat(double)
++ double getLongi()
++ void setLongi(double)
++ int getPoints()
++ void addPoints(int)
++ void setPoints(int)
+}
+class com.example.kijjapp.HomeActivity {
+# void onCreate(Bundle)
++ void goToUpcomingBooking(View)
++ void goToNewBooking(View)
++ void goToProfile(View)
++ void goToPoints(View)
++ void goBack(View)
+}
+class com.example.kijjapp.ThreadTaskUpcomingBookings {
+- UpcomingActivity activity
+~ ListView listView
+- View view
++ void run()
+}
+class com.example.kijjapp.SignUpActivity {
+- String pass
++ {static} String SignupURL
+# void onCreate(Bundle)
++ void doSignUP(View)
++ void goToHomePage(View)
++ void goBack(View)
++ String getPass()
++ void setPass(String)
++ void addLatLongToSitter(String,View)
+}
+class com.example.kijjapp.OwnerProfileActivity {
+~ UpcomingActivity activity
+- String email
+# void onCreate(Bundle)
++ void showProfile()
++ void goBack(View)
+}
+class com.example.kijjapp.ThreadTaskDoApply {
+- NewBookingsActivity activity
+~ int bookingId
++ void run()
+}
+class com.example.kijjapp.ProfileActivity {
+- String email
++ {static} String URL_updateSitter
+~ Button b
+~ EditText editText
+~ EditText editAdd
+~ EditText editZip
+# void onCreate(Bundle)
++ void showProfile()
++ void goBack(View)
++ void editProfile(View)
++ void save(View)
+}
+class com.example.kijjapp.NewBookingsActivity {
+- TextView tv
+- SeekBar seekBar
+- String breed
+- String wantDog
+- String wantCat
+- String wantOther
+- String wantAll
+- double maxLong
+- double minLong
+- double maxLat
+- double minLat
+- double rating
++ {static} String URL_bookingInfo
++ {static} String URL_doApply
+- ArrayList<Booking> validBookingsList
+~ String[] ownerInfo
+~ String[] ownerAddress
+~ String[] ownerZCS
+# void onCreate(Bundle)
++ void goToProfile(View)
++ void goBack(View)
++ void search(View)
++ void updateAllBookings(String)
++ String getBreed()
++ void setBreed(String)
++ String getWantDog()
++ void setWantDog(String)
++ String getWantCat()
++ void setWantCat(String)
++ String getWantOther()
++ void setWantOther(String)
++ String getWantAll()
++ void setWantAll(String)
++ double getMaxLong()
++ void setMaxLong(double)
++ double getMinLong()
++ void setMinLong(double)
++ double getMaxLat()
++ void setMaxLat(double)
++ double getMinLat()
++ void setMinLat(double)
++ double getRating()
++ void setRating(double)
++ void goToOwnerProfile(View)
++ void doApply(View)
+}
+class com.example.kijjapp.PetOwner {
+- String email
+- String first
+- String last
+- String address
+- String city
+- String state
+- int zip
+- double lat
+- double longi
+- String desc
+- double rating
+- String type
+- String breed
+- String petName
++ String getEmail()
++ void setEmail(String)
++ String getFirst()
++ void setFirst(String)
++ String getLast()
++ void setLast(String)
++ String getAddress()
++ void setAddress(String)
++ String getCity()
++ void setCity(String)
++ String getState()
++ void setState(String)
++ int getZip()
++ void setZip(int)
++ double getLat()
++ void setLat(double)
++ double getLongi()
++ void setLongi(double)
++ String getType()
++ void setType(String)
++ String getBreed()
++ void setBreed(String)
++ String getPetName()
++ void setPetName(String)
++ String getDesc()
++ double getRating()
++ void setRating(int)
++ void setDesc(String)
++ String toString()
+}
+class com.example.kijjapp.CustomListAdapter {
+- Activity context
+- String[] nameArray
++ View getView(int,View,ViewGroup)
+}
+class com.example.kijjapp.ThreadTaskValidBookings {
+- NewBookingsActivity activity
+~ ListView listView
++ void run()
+}
+class com.example.kijjapp.UpcomingActivity {
++ {static} String URL_upcomingInfo
++ {static} String URL_points
++ {static} String URL_removeBooking
+~ String[] sd
+~ String[] ed
+~ int length
+- ArrayList<Booking> bookingsList
+~ String[] ownerInfo
+~ String[] ownerAddress
+~ String[] ownerZCS
+- String ownerEmail
+# void onCreate(Bundle)
++ void goToProfile(View)
++ void goBack(View)
++ void updateBookingsArray(String)
++ String getBookingsList()
++ void setBookingsList(ArrayList<Booking>)
++ void goToOwnerProfile(View)
++ void finished(View)
++ {static} long getDateDiff(SimpleDateFormat,String,String)
+}
+class com.example.kijjapp.MainActivity {
++ {static} String URL_JSON
++ {static} String email
++ {static} PetSitter sitter
++ {static} PetOwner owner
+# void onCreate(Bundle)
++ void isValidLogin(String,View)
++ void goToLoginPage(View)
++ void goToSignUp(View)
+}
+class com.example.kijjapp.LearnMoreActivity {
+# void onCreate(Bundle)
++ void goBack(View)
++ void showProfile()
+}
+class com.example.kijjapp.ThreadTaskUpdateSitter {
+- ProfileActivity activity
++ void run()
+}
+class com.example.kijjapp.SearchCustomAdapter {
+- Activity context
+- String[] nameArray
++ View getView(int,View,ViewGroup)
+}
+
+
+com.example.kijjapp.Thread <|-- com.example.kijjapp.ThreadTaskCheckLogin
+androidx.appcompat.app.AppCompatActivity <|-- com.example.kijjapp.PointsActivity
+com.example.kijjapp.Thread <|-- com.example.kijjapp.ThreadTaskSignUp
+com.example.kijjapp.Thread <|-- com.example.kijjapp.ThreadTaskRemoveBooking
+com.example.kijjapp.Thread <|-- com.example.kijjapp.ThreadTaskJsonUrl
+com.example.kijjapp.Thread <|-- com.example.kijjapp.ThreadTaskPoints
+androidx.appcompat.app.AppCompatActivity <|-- com.example.kijjapp.LoginActivity
+com.example.kijjapp.Thread <|-- com.example.kijjapp.ThreadTaskRemovePoints
+androidx.appcompat.app.AppCompatActivity <|-- com.example.kijjapp.HomeActivity
+com.example.kijjapp.Thread <|-- com.example.kijjapp.ThreadTaskUpcomingBookings
+androidx.appcompat.app.AppCompatActivity <|-- com.example.kijjapp.SignUpActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.kijjapp.OwnerProfileActivity
+com.example.kijjapp.Thread <|-- com.example.kijjapp.ThreadTaskDoApply
+androidx.appcompat.app.AppCompatActivity <|-- com.example.kijjapp.ProfileActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.kijjapp.NewBookingsActivity
+android.widget.ArrayAdapter <|-- com.example.kijjapp.CustomListAdapter
+com.example.kijjapp.Thread <|-- com.example.kijjapp.ThreadTaskValidBookings
+androidx.appcompat.app.AppCompatActivity <|-- com.example.kijjapp.UpcomingActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.kijjapp.MainActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.kijjapp.LearnMoreActivity
+com.example.kijjapp.Thread <|-- com.example.kijjapp.ThreadTaskUpdateSitter
+android.widget.ArrayAdapter <|-- com.example.kijjapp.SearchCustomAdapter
+@enduml

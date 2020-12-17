@@ -1,0 +1,24 @@
+@startuml
+class com.example.kijjapp.Booking {
+- int id
+- PetSitter petSitter
+- PetOwner petOwner
+- String endDate
+- String startDate
+- String status
+- String[] ed
++ int getId()
++ void setId(int)
++ String getEndDate()
++ void setEndDate(String)
++ String getStartDate()
++ void setStartDate(String)
++ PetSitter getPetSitter()
++ void setPetSitter(PetSitter)
++ PetOwner getPetOwner()
++ void setPetOwner(PetOwner)
++ String getStatus()
++ void setStatus(String)
++ int startToEnd()
+}
+@enduml
